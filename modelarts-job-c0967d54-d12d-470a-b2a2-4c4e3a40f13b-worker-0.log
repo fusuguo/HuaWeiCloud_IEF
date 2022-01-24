@@ -1,0 +1,903 @@
+[ModelArts Service Log][init] toolkit_obs_upload_job_pid = 52
+[ModelArts Service Log][init] toolkit_obs_upload_pid = 53
+[ModelArts Service Log][init] running at 2022-01-21-13:45:31
+[ModelArts Service Log][init] ip of the pod: 172.16.0.174
+[ModelArts Service Log][init] autosearch_path is empty, skip the autosearch download
+[ModelArts Service Log][init] start to download the code
+[ModelArts Service Log][init] code_url: s3://test22161/code/
+[ModelArts Service Log][init] modelarts_downloader_job_pid = 132
+[ModelArts Service Log]2022-01-21 13:45:33,063 - modelarts-downloader.py[line:264] - INFO: Main: modelarts-downloader starting with Namespace(dst='./', recursive=True, skip_creating_dir=False, src='s3://test22161/code/', trace=False, type='common', verbose=False)
+[ModelArts Service Log]2022-01-21 13:45:33,616 - consumer.py[line:107] - INFO: MoXing Local Track Mode.
+[ModelArts Service Log][init] code is now in /home/work/modelarts/user-job-dir
+[ModelArts Service Log][init]engine type is: pytorch
+[ModelArts Service Log][init]python version: 3
+[ModelArts Service Log][init] inputs_handler_job_pid = 155
+[ModelArts Service Log][INFO][2022/01/21 13:45:35]: env MA_INPUTS is not found, skip the inputs handler
+[ModelArts Service Log][INFO][2022/01/21 13:45:35,895]: mkdir for local output dir
+[ModelArts Service Log][INFO][2022/01/21 13:45:35,896]: output-handler finalized
+[ModelArts Service Log][init] exiting at 2022-01-21-13:45:35
+[ModelArts Service Log][init] upload_metrics_pid = 183
+[ModelArts Service Log][init] stop toolkit_obs_upload_pid = 53 by signal SIGTERM
+[ModelArts Service Log][sidecar] toolkit_obs_upload 53 ret_code is 0
+[ModelArts Service Log][init] exit with 0
+do nothing
+[Modelarts Service Log][decrypt_modelarts_aes_env] no related env found
+[Modelarts Service Log]user: uid=1101(work) gid=1101(work) groups=1101(work)
+[Modelarts Service Log]pwd: /home/work
+[Modelarts Service Log]app_url: /home/work/modelarts/user-job-dir/code
+[Modelarts Service Log]boot_file: code/train.py
+[Modelarts Service Log]log_url: /home/work/modelarts/outputs/log/modelarts-job-c0967d54-d12d-470a-b2a2-4c4e3a40f13b-training.log
+[Modelarts Service Log]command: code/train.py --init_method=tcp://172.16.0.174:6666 --num_gpus=1 --data_url=/home/work/modelarts/inputs/data_url_0/ --train_url=/home/work/modelarts/outputs/train_url_0/ --eval_url=/home/work/modelarts/outputs/eval_url_1/
+[Modelarts Service Log]MODELARTS_IPOIB_DEVICE: 
+[Modelarts Service Log]dependencies_file_dir: /home/work/user-job-dir/code
+[Modelarts Service Log][modelarts_create_log] modelarts-pipe found
+[ModelArts Service Log]modelarts-pipe: will create log file /home/work/modelarts/outputs/log/modelarts-job-c0967d54-d12d-470a-b2a2-4c4e3a40f13b-training.log
+[Modelarts Service Log]handle inputs of training job
+INFO:root:Using MoXing-v2.0.0.rc2.4b57a67b-4b57a67b
+INFO:root:Using OBS-Python-SDK-3.20.9.1
+[ModelArts Service Log][sidecar] toolkit_obs_upload_job_pid = 34
+[ModelArts Service Log][sidecar] toolkit_obs_upload_pid = 36
+[ModelArts Service Log][sidecar] running at 2022-01-21-13:45:38
+[ModelArts Service Log][sidecar] outputs_handler_job_pid = 63
+[ModelArts Service Log][sidecar] outputs_handler_pid = 64
+[ModelArts Service Log][sidecar] toolkit_obs_sync_by_channels_job_pid = 78
+[ModelArts Service Log][sidecar] toolkit_obs_sync_by_channels_pid = 79
+[ModelArts Service Log][sidecar] waiting for training complete
+time="2022-01-21T13:45:38+08:00" level=info msg="local dir = /home/work/modelarts/log/" file="upload.go:36" Command=obs/upload Component=ma-training-toolkit Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="obs dir = s3://modelarts-training-log-cn-north-4/c0967d54-d12d-470a-b2a2-4c4e3a40f13b/worker-0" file="upload.go:39" Command=obs/upload Component=ma-training-toolkit Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="start the periodic upload task, upload period = 5 seconds " file="upload.go:49" Command=obs/upload Component=ma-training-toolkit Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="local dir = /home/work/modelarts/outputs/eval_url_1/" file="upload.go:36" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=eval_url Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="obs dir = /test22161/out/" file="upload.go:39" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=eval_url Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="start the periodic upload task, upload period = 30 seconds " file="upload.go:49" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=eval_url Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="local dir = /home/work/modelarts/outputs/train_url_0/" file="upload.go:36" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=train_url Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="obs dir = /test22161/resnet/model/" file="upload.go:39" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=train_url Platform=ModelArts-Service
+time="2022-01-21T13:45:38+08:00" level=info msg="start the periodic upload task, upload period = 30 seconds " file="upload.go:49" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=train_url Platform=ModelArts-Service
+[ModelArts Service Log][INFO][2022/01/21 13:45:38]: download the content of [data_url] inputs
+[ModelArts Service Log][INFO][2022/01/21 13:45:39,213]: registered signal handler
+[ModelArts Service Log]2022-01-21 13:45:39,573 - modelarts-downloader.py[line:623] - INFO: Main: modelarts-downloader starting with Namespace(dst='./', recursive=True, skip_creating_dir=True, src='s3://test22161/data_set/', trace=False, type='common', verbose=False)
+[ModelArts Service Log]2022-01-21 13:45:40,308 - file_io.py[line:1131] - INFO: Listing OBS: 1000
+[ModelArts Service Log]2022-01-21 13:45:40,415 - file_io.py[line:1131] - INFO: Listing OBS: 2000
+[ModelArts Service Log]2022-01-21 13:45:40,516 - file_io.py[line:1131] - INFO: Listing OBS: 3000
+[ModelArts Service Log]2022-01-21 13:45:40,617 - file_io.py[line:1131] - INFO: Listing OBS: 4000
+[ModelArts Service Log]2022-01-21 13:45:40,731 - file_io.py[line:1131] - INFO: Listing OBS: 5000
+[ModelArts Service Log]2022-01-21 13:45:40,830 - file_io.py[line:1131] - INFO: Listing OBS: 6000
+[ModelArts Service Log]2022-01-21 13:45:40,931 - file_io.py[line:1131] - INFO: Listing OBS: 7000
+[ModelArts Service Log]2022-01-21 13:45:40,998 - file_io.py[line:1131] - INFO: Listing OBS: 8000
+[ModelArts Service Log]2022-01-21 13:46:26,719 - file_io.py[line:1131] - INFO: Listing OBS: 1000
+[ModelArts Service Log]2022-01-21 13:46:26,814 - file_io.py[line:1131] - INFO: Listing OBS: 2000
+[ModelArts Service Log]2022-01-21 13:46:26,906 - file_io.py[line:1131] - INFO: Listing OBS: 3000
+[ModelArts Service Log]2022-01-21 13:46:26,999 - file_io.py[line:1131] - INFO: Listing OBS: 4000
+[ModelArts Service Log]2022-01-21 13:46:27,129 - file_io.py[line:1131] - INFO: Listing OBS: 5000
+[ModelArts Service Log]2022-01-21 13:46:27,226 - file_io.py[line:1131] - INFO: Listing OBS: 6000
+[ModelArts Service Log]2022-01-21 13:46:27,322 - file_io.py[line:1131] - INFO: Listing OBS: 7000
+[ModelArts Service Log]2022-01-21 13:46:27,396 - file_io.py[line:1131] - INFO: Listing OBS: 8000
+[ModelArts Service Log]2022-01-21 13:46:29,060 - file_io.py[line:2101] - INFO: pid: None.	1000/8635
+[ModelArts Service Log]2022-01-21 13:46:30,473 - file_io.py[line:2101] - INFO: pid: None.	2000/8635
+[ModelArts Service Log]2022-01-21 13:46:31,817 - file_io.py[line:2101] - INFO: pid: None.	3000/8635
+[ModelArts Service Log]2022-01-21 13:46:33,121 - file_io.py[line:2101] - INFO: pid: None.	4000/8635
+[ModelArts Service Log]2022-01-21 13:46:34,519 - file_io.py[line:2101] - INFO: pid: None.	5000/8635
+[ModelArts Service Log]2022-01-21 13:46:35,873 - file_io.py[line:2101] - INFO: pid: None.	6000/8635
+[ModelArts Service Log]2022-01-21 13:46:37,245 - file_io.py[line:2101] - INFO: pid: None.	7000/8635
+[ModelArts Service Log]2022-01-21 13:46:38,587 - file_io.py[line:2101] - INFO: pid: None.	8000/8635
+[ModelArts Service Log][INFO][2022/01/21 13:46:39]: download the content of [data_url] inputs successfully
+[ModelArts Service Log][INFO][2022/01/21 13:46:39]: it can be accessed at local dir [/home/work/modelarts/inputs/data_url_0]
+'/home/work/modelarts/user-job-dir/code' -> './code'
+'/home/work/modelarts/user-job-dir/code/model.py' -> './code/model.py'
+'/home/work/modelarts/user-job-dir/code/train.py' -> './code/train.py'
+/home/work/user-job-dir
+[Modelarts Service Log][modelarts_logger] modelarts-pipe found
+[ModelArts Service Log]modelarts-pipe: will create log file /home/work/modelarts/outputs/log/modelarts-job-c0967d54-d12d-470a-b2a2-4c4e3a40f13b-training.log
+[ModelArts Service Log]modelarts-pipe: will write log file /home/work/modelarts/outputs/log/modelarts-job-c0967d54-d12d-470a-b2a2-4c4e3a40f13b-training.log
+[ModelArts Service Log]modelarts-pipe: param for max log length: 1073741824
+[ModelArts Service Log]modelarts-pipe: param for whether exit on overflow: 0
+INFO:root:Using MoXing-v2.0.0.rc2.4b57a67b-4b57a67b
+INFO:root:Using OBS-Python-SDK-3.20.9.1
+INFO:root:Using deepmoxing-v1.0.2-rc0-13eaa639
+INFO:root:Using autohem-v1.0.2-rc0-unknown
+INFO:root:Listing OBS: 1000
+INFO:root:Listing OBS: 2000
+INFO:root:Listing OBS: 3000
+INFO:root:Listing OBS: 4000
+INFO:root:Listing OBS: 5000
+INFO:root:Listing OBS: 6000
+INFO:root:Listing OBS: 7000
+INFO:root:Listing OBS: 8000
+INFO:root:pid: None.	1000/8635
+INFO:root:pid: None.	2000/8635
+INFO:root:pid: None.	3000/8635
+INFO:root:pid: None.	4000/8635
+INFO:root:pid: None.	5000/8635
+INFO:root:pid: None.	6000/8635
+INFO:root:pid: None.	7000/8635
+INFO:root:pid: None.	8000/8635
+Looking in indexes: http://repo.myhuaweicloud.com/repository/pypi/simple/
+Collecting wrapt
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/e2/0f/89c9c2d8ba06709a3d471507a78be443e2c2d9f1321d3e1154c76f44150c/wrapt-1.13.3-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (78 kB)
+Collecting enum34
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/63/f6/ccb1c83687756aeabbf3ca0f213508fcfb03883ff200d201b3a4c60cedcc/enum34-1.1.10-py3-none-any.whl (11 kB)
+Collecting simplejson
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/61/84/646d5238bddd2e436a9a6bacd260ef85626825ebe359ef807adf259c9233/simplejson-3.17.5-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (129 kB)
+Collecting netaddr
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/ff/cd/9cdfea8fc45c56680b798db6a55fa60a22e2d3d3ccf54fc729d083b50ce4/netaddr-0.8.0-py2.py3-none-any.whl (1.9 MB)
+Collecting importlib-resources
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/24/1b/33e489669a94da3ef4562938cd306e8fa915e13939d7b8277cb5569cb405/importlib_resources-5.4.0-py3-none-any.whl (28 kB)
+Collecting zipp>=3.1.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/bd/df/d4a4974a3e3957fd1c1fa3082366d7fff6e428ddb55f074bf64876f8e8ad/zipp-3.6.0-py3-none-any.whl (5.3 kB)
+Installing collected packages: zipp, importlib-resources, wrapt, simplejson, netaddr, enum34
+Successfully installed enum34-1.1.10 importlib-resources-5.4.0 netaddr-0.8.0 simplejson-3.17.5 wrapt-1.13.3 zipp-3.6.0
+WARNING: You are using pip version 21.2.1; however, version 21.3 is available.
+You should consider upgrading via the '/home/work/anaconda3/bin/python -m pip install --upgrade pip' command.
+a : 0
+Looking in indexes: http://repo.myhuaweicloud.com/repository/pypi/simple/
+Collecting tensorflow
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/fe/e2/20b693b5cc699f8116075379d57c4628502f58f96aa759209b77be047882/tensorflow-2.6.2-cp36-cp36m-manylinux2010_x86_64.whl (458.3 MB)
+Collecting h5py~=3.1.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/70/7a/e53e500335afb6b1aade11227cdf107fca54106a1dca5c9d13242a043f3b/h5py-3.1.0-cp36-cp36m-manylinux1_x86_64.whl (4.0 MB)
+Collecting opt-einsum~=3.3.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/bc/19/404708a7e54ad2798907210462fd950c3442ea51acc8790f3da48d2bee8b/opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting typing-extensions~=3.7.4
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/60/7a/e881b5abb54db0e6e671ab088d079c57ce54e8a01a3ca443f561ccadb37e/typing_extensions-3.7.4.3-py3-none-any.whl (22 kB)
+Collecting termcolor~=1.1.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz (3.9 kB)
+Collecting wrapt~=1.12.1
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/82/f7/e43cefbe88c5fd371f4cf0cf5eb3feccd07515af9fd6cf7dbf1d1793a797/wrapt-1.12.1.tar.gz (27 kB)
+Collecting flatbuffers~=1.12.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/eb/26/712e578c5f14e26ae3314c39a1bdc4eb2ec2f4ddc89b708cf8e0a0d20423/flatbuffers-1.12-py2.py3-none-any.whl (15 kB)
+Collecting clang~=5.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/32/12/e17c1220f8ca587add2e076ebb28b6c4551fcc730e3c69a5f49679ad28e9/clang-5.0.tar.gz (30 kB)
+Collecting google-pasta~=0.2
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/a3/de/c648ef6835192e6e2cc03f40b19eeda4382c49b5bafb43d88b931c4c74ac/google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Requirement already satisfied: protobuf>=3.9.2 in /home/work/anaconda3/lib/python3.6/site-packages (from tensorflow) (3.16.0)
+Collecting six~=1.15.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl (10 kB)
+Collecting wheel~=0.35
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/27/d6/003e593296a85fd6ed616ed962795b2f87709c3eee2bca4f6d0fe55c6d00/wheel-0.37.1-py2.py3-none-any.whl (35 kB)
+Collecting tensorflow-estimator<2.7,>=2.6.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/c8/54/1b2f1e22a2670546cc02e4df1b80425edaee02133173bb91aa0f6d3d0293/tensorflow_estimator-2.6.0-py2.py3-none-any.whl (462 kB)
+Collecting astunparse~=1.6.3
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/2b/03/13dde6512ad7b4557eb792fbcf0c653af6076b81e5941d36ec61f7ce6028/astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting keras-preprocessing~=1.1.2
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/79/4c/7c3275a01e12ef9368a892926ab932b33bb13d55794881e3573482b378a7/Keras_Preprocessing-1.1.2-py2.py3-none-any.whl (42 kB)
+Collecting gast==0.4.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/b6/48/583c032b79ae5b3daa02225a675aeb673e58d2cb698e78510feceb11958c/gast-0.4.0-py3-none-any.whl (9.8 kB)
+Collecting absl-py~=0.10
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/97/75/f5e61fb67ecbe45c31035b17562464e11b91a2b8a351bae5ca0db2969e3b/absl_py-0.15.0-py3-none-any.whl (132 kB)
+Collecting tensorboard<2.7,>=2.6.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/a0/20/a59a30c32330e4ff704faa4273b251db042d495e0c367bcdf045c6fe26e9/tensorboard-2.6.0-py3-none-any.whl (5.6 MB)
+Collecting keras<2.7,>=2.6.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/5a/38/04d9b7fb53acdf861df2c4505fa96b06c779817a511e94b8882d284ba360/keras-2.6.0-py2.py3-none-any.whl (1.3 MB)
+Requirement already satisfied: numpy~=1.19.2 in /home/work/anaconda3/lib/python3.6/site-packages (from tensorflow) (1.19.5)
+Requirement already satisfied: grpcio<2.0,>=1.37.0 in /home/work/anaconda3/lib/python3.6/site-packages (from tensorflow) (1.39.0)
+Collecting cached-property
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/48/19/f2090f7dad41e225c7f2326e4cfe6fff49e57dedb5b53636c9551f86b069/cached_property-1.5.2-py2.py3-none-any.whl (7.6 kB)
+Collecting tensorboard-plugin-wit>=1.6.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/e0/68/e8ecfac5dd594b676c23a7f07ea34c197d7d69b3313afdf8ac1b0a9905a2/tensorboard_plugin_wit-1.8.1-py3-none-any.whl (781 kB)
+Collecting tensorboard-data-server<0.7.0,>=0.6.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/60/f9/802efd84988bffd9f644c03b6e66fde8e76c3aa33db4279ddd11c5d61f4b/tensorboard_data_server-0.6.1-py3-none-manylinux2010_x86_64.whl (4.9 MB)
+Collecting markdown>=2.6.8
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/9f/d4/2c7f83915d437736996b2674300c6c4b578a6f897f34e40f5c04db146719/Markdown-3.3.6-py3-none-any.whl (97 kB)
+Requirement already satisfied: requests<3,>=2.21.0 in /home/work/anaconda3/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (2.26.0)
+Requirement already satisfied: werkzeug>=0.11.15 in /home/work/anaconda3/lib/python3.6/site-packages (from tensorboard<2.7,>=2.6.0->tensorflow) (2.0.1)
+Collecting google-auth<2,>=1.6.3
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/fb/7a/1b3eb54caee1b8c73c2c3645f78a382eca4805a301a30c64a078e736e446/google_auth-1.35.0-py2.py3-none-any.whl (152 kB)
+Collecting google-auth-oauthlib<0.5,>=0.4.1
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/b1/0e/0636cc1448a7abc444fb1b3a63655e294e0d2d49092dc3de05241be6d43c/google_auth_oauthlib-0.4.6-py2.py3-none-any.whl (18 kB)
+Collecting setuptools>=41.0.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/b0/3a/88b210db68e56854d0bcf4b38e165e03be377e13907746f825790f3df5bf/setuptools-59.6.0-py3-none-any.whl (952 kB)
+Collecting rsa<5,>=3.1.4
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/30/ab/8fd9e88e6fa5ec41afca995938bbefb72195278e0cfc5bd76a4f29b23fb2/rsa-4.8-py3-none-any.whl (39 kB)
+Collecting pyasn1-modules>=0.2.1
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/95/de/214830a981892a3e286c3794f41ae67a4495df1108c3da8a9f62159b9a9d/pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+Collecting cachetools<5.0,>=2.0.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/ea/c1/4740af52db75e6dbdd57fc7e9478439815bbac549c1c05881be27d19a17d/cachetools-4.2.4-py3-none-any.whl (10 kB)
+Collecting requests-oauthlib>=0.7.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/a3/12/b92740d845ab62ea4edf04d2f4164d82532b5a0b03836d4d4e71c6f3d379/requests_oauthlib-1.3.0-py2.py3-none-any.whl (23 kB)
+Collecting importlib-metadata>=4.4
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/a0/a1/b153a0a4caf7a7e3f15c2cd56c7702e2cf3d89b1b359d1f1c5e59d68f4ce/importlib_metadata-4.8.3-py3-none-any.whl (17 kB)
+Requirement already satisfied: zipp>=0.5 in /home/work/anaconda3/lib/python3.6/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard<2.7,>=2.6.0->tensorflow) (3.6.0)
+Collecting pyasn1<0.5.0,>=0.4.6
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/62/1e/a94a8d635fa3ce4cfc7f506003548d0a2447ae76fd5ca53932970fe3053f/pyasn1-0.4.8-py2.py3-none-any.whl (77 kB)
+Requirement already satisfied: idna<4,>=2.5 in /home/work/anaconda3/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (2.6)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /home/work/anaconda3/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (2.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in /home/work/anaconda3/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (2018.1.18)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/work/anaconda3/lib/python3.6/site-packages (from requests<3,>=2.21.0->tensorboard<2.7,>=2.6.0->tensorflow) (1.21.1)
+Collecting oauthlib>=3.0.0
+  Downloading http://repo.myhuaweicloud.com/repository/pypi/packages/e8/5d/9dd1c29e5a786525f6342f6c1d812ed2e37edc653ad297048c1668988053/oauthlib-3.1.1-py2.py3-none-any.whl (146 kB)
+Requirement already satisfied: dataclasses in /home/work/anaconda3/lib/python3.6/site-packages (from werkzeug>=0.11.15->tensorboard<2.7,>=2.6.0->tensorflow) (0.8)
+Building wheels for collected packages: clang, termcolor, wrapt
+  Building wheel for clang (setup.py): started
+  Building wheel for clang (setup.py): finished with status 'done'
+  Created wheel for clang: filename=clang-5.0-py3-none-any.whl size=32173 sha256=4ce1c2c3ae1a1202cfd933d66ea667544931057075ea6e38dbac4382176dabd5
+  Stored in directory: /home/work/.cache/pip/wheels/d2/a3/ee/68b33f2815095a3e8af67de9d3d7cfa3fb09c54c7ce96b5d4a
+  Building wheel for termcolor (setup.py): started
+  Building wheel for termcolor (setup.py): finished with status 'done'
+  Created wheel for termcolor: filename=termcolor-1.1.0-py3-none-any.whl size=5711 sha256=26408389cd375de2111bbe501cf9383ae88cab06bbd875488440a88bb03c2011
+  Stored in directory: /home/work/.cache/pip/wheels/ee/72/5c/3a4e7b9b93273d468fcf98d0ffc9ca1475e651421a6646f4e6
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.12.1-cp36-cp36m-linux_x86_64.whl size=68088 sha256=393583612f2ffb44804d9459812591be16150643f734f961b5534b8a5ba167c4
+  Stored in directory: /home/work/.cache/pip/wheels/2e/15/15/1d0000a58c51f3e43a85ab35ff995e48ee66f5458b146c5d03
+Successfully built clang termcolor wrapt
+Installing collected packages: pyasn1, typing-extensions, six, setuptools, rsa, pyasn1-modules, oauthlib, cachetools, requests-oauthlib, importlib-metadata, google-auth, wheel, tensorboard-plugin-wit, tensorboard-data-server, markdown, google-auth-oauthlib, cached-property, absl-py, wrapt, termcolor, tensorflow-estimator, tensorboard, opt-einsum, keras-preprocessing, keras, h5py, google-pasta, gast, flatbuffers, clang, astunparse, tensorflow
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing-extensions 3.10.0.0
+    Uninstalling typing-extensions-3.10.0.0:
+      Successfully uninstalled typing-extensions-3.10.0.0
+  Attempting uninstall: six
+    Found existing installation: six 1.11.0
+    Uninstalling six-1.11.0:
+      Successfully uninstalled six-1.11.0
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 38.4.0
+    Uninstalling setuptools-38.4.0:
+      Successfully uninstalled setuptools-38.4.0
+  Attempting uninstall: wheel
+    Found existing installation: wheel 0.30.0
+    Uninstalling wheel-0.30.0:
+      Successfully uninstalled wheel-0.30.0
+  Attempting uninstall: absl-py
+    Found existing installation: absl-py 0.2.2
+    Uninstalling absl-py-0.2.2:
+      Successfully uninstalled absl-py-0.2.2
+  Attempting uninstall: wrapt
+    Found existing installation: wrapt 1.13.3
+    Uninstalling wrapt-1.13.3:
+      Successfully uninstalled wrapt-1.13.3
+  Attempting uninstall: h5py
+    Found existing installation: h5py 2.8.0
+    Uninstalling h5py-2.8.0:
+      Successfully uninstalled h5py-2.8.0
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+moxing-framework 2.0.0.rc2.4b57a67b requires urllib3>=1.26.2, but you have urllib3 1.21.1 which is incompatible.
+botocore 1.20.70 requires urllib3<1.27,>=1.25.4, but you have urllib3 1.21.1 which is incompatible.
+Successfully installed absl-py-0.15.0 astunparse-1.6.3 cached-property-1.5.2 cachetools-4.2.4 clang-5.0 flatbuffers-1.12 gast-0.4.0 google-auth-1.35.0 google-auth-oauthlib-0.4.6 google-pasta-0.2.0 h5py-3.1.0 importlib-metadata-4.8.3 keras-2.6.0 keras-preprocessing-1.1.2 markdown-3.3.6 oauthlib-3.1.1 opt-einsum-3.3.0 pyasn1-0.4.8 pyasn1-modules-0.2.8 requests-oauthlib-1.3.0 rsa-4.8 setuptools-59.6.0 six-1.15.0 tensorboard-2.6.0 tensorboard-data-server-0.6.1 tensorboard-plugin-wit-1.8.1 tensorflow-2.6.2 tensorflow-estimator-2.6.0 termcolor-1.1.0 typing-extensions-3.7.4.3 wheel-0.37.1 wrapt-1.12.1
+WARNING: You are using pip version 21.2.1; however, version 21.3 is available.
+You should consider upgrading via the '/home/work/anaconda3/bin/python -m pip install --upgrade pip' command.
+
+
+
+
+
+
+====================================================================
+
+a : 0
+
+
+using cuda:0 device.
+Using 8 dataloader workers every process
+using 4317 images for training, 4317 images for validation.
+
+  0%|          | 0/270 [00:00<?, ?it/s]
+train epoch[1/3] loss:1.886:   0%|          | 1/270 [00:00<03:07,  1.43it/s]
+train epoch[1/3] loss:1.248:   1%|          | 3/270 [00:00<00:59,  4.52it/s]
+train epoch[1/3] loss:1.115:   2%|▏         | 5/270 [00:00<00:35,  7.37it/s]
+train epoch[1/3] loss:1.057:   3%|▎         | 7/270 [00:01<00:26,  9.99it/s]
+train epoch[1/3] loss:0.974:   3%|▎         | 9/270 [00:01<00:21, 12.21it/s]
+train epoch[1/3] loss:0.998:   4%|▍         | 11/270 [00:01<00:18, 14.06it/s]
+train epoch[1/3] loss:0.474:   5%|▌         | 14/270 [00:01<00:15, 16.06it/s]
+train epoch[1/3] loss:0.844:   6%|▋         | 17/270 [00:01<00:14, 17.40it/s]
+train epoch[1/3] loss:0.601:   7%|▋         | 19/270 [00:01<00:13, 18.01it/s]
+train epoch[1/3] loss:1.218:   8%|▊         | 21/270 [00:01<00:13, 18.51it/s]
+train epoch[1/3] loss:0.461:   9%|▊         | 23/270 [00:01<00:13, 18.86it/s]
+train epoch[1/3] loss:0.471:   9%|▉         | 25/270 [00:01<00:12, 19.17it/s]
+train epoch[1/3] loss:0.687:  10%|█         | 27/270 [00:02<00:12, 19.39it/s]
+train epoch[1/3] loss:0.638:  11%|█         | 29/270 [00:02<00:12, 19.53it/s]
+train epoch[1/3] loss:0.291:  11%|█▏        | 31/270 [00:02<00:12, 19.65it/s]
+train epoch[1/3] loss:0.418:  12%|█▏        | 33/270 [00:02<00:12, 19.73it/s]
+train epoch[1/3] loss:1.025:  13%|█▎        | 35/270 [00:02<00:11, 19.79it/s]
+train epoch[1/3] loss:0.272:  14%|█▎        | 37/270 [00:02<00:11, 19.76it/s]
+train epoch[1/3] loss:0.247:  14%|█▍        | 39/270 [00:02<00:11, 19.69it/s]
+train epoch[1/3] loss:0.159:  15%|█▌        | 41/270 [00:02<00:11, 19.74it/s]
+train epoch[1/3] loss:0.510:  16%|█▌        | 43/270 [00:02<00:11, 19.75it/s]
+train epoch[1/3] loss:0.126:  17%|█▋        | 45/270 [00:02<00:11, 19.79it/s]
+train epoch[1/3] loss:0.417:  17%|█▋        | 47/270 [00:03<00:11, 19.84it/s]
+train epoch[1/3] loss:1.201:  18%|█▊        | 49/270 [00:03<00:11, 19.88it/s]
+train epoch[1/3] loss:0.383:  19%|█▉        | 51/270 [00:03<00:11, 19.91it/s]
+train epoch[1/3] loss:0.461:  20%|█▉        | 53/270 [00:03<00:10, 19.93it/s]
+train epoch[1/3] loss:0.583:  20%|██        | 55/270 [00:03<00:10, 19.92it/s]
+train epoch[1/3] loss:0.583:  21%|██        | 57/270 [00:03<00:10, 19.92it/s]
+train epoch[1/3] loss:0.722:  22%|██▏       | 59/270 [00:03<00:10, 19.94it/s]
+train epoch[1/3] loss:0.626:  23%|██▎       | 61/270 [00:03<00:10, 19.94it/s]
+train epoch[1/3] loss:0.420:  23%|██▎       | 63/270 [00:03<00:10, 19.95it/s]
+train epoch[1/3] loss:0.442:  24%|██▍       | 65/270 [00:03<00:10, 19.94it/s]
+train epoch[1/3] loss:0.291:  25%|██▌       | 68/270 [00:04<00:10, 19.96it/s]
+train epoch[1/3] loss:0.772:  26%|██▌       | 70/270 [00:04<00:10, 19.95it/s]
+train epoch[1/3] loss:0.345:  27%|██▋       | 72/270 [00:04<00:09, 19.92it/s]
+train epoch[1/3] loss:0.782:  27%|██▋       | 74/270 [00:04<00:09, 19.92it/s]
+train epoch[1/3] loss:0.475:  28%|██▊       | 76/270 [00:04<00:09, 19.92it/s]
+train epoch[1/3] loss:0.271:  29%|██▉       | 78/270 [00:04<00:09, 19.90it/s]
+train epoch[1/3] loss:0.782:  30%|██▉       | 80/270 [00:04<00:09, 19.91it/s]
+train epoch[1/3] loss:0.340:  30%|███       | 82/270 [00:04<00:09, 19.82it/s]
+train epoch[1/3] loss:0.236:  31%|███       | 84/270 [00:04<00:09, 19.70it/s]
+train epoch[1/3] loss:0.402:  32%|███▏      | 86/270 [00:04<00:09, 19.76it/s]
+train epoch[1/3] loss:0.197:  33%|███▎      | 88/270 [00:05<00:09, 19.82it/s]
+train epoch[1/3] loss:0.631:  33%|███▎      | 90/270 [00:05<00:09, 19.80it/s]
+train epoch[1/3] loss:0.375:  34%|███▍      | 92/270 [00:05<00:09, 19.65it/s]
+train epoch[1/3] loss:0.262:  35%|███▍      | 94/270 [00:05<00:08, 19.64it/s]
+train epoch[1/3] loss:0.455:  36%|███▌      | 96/270 [00:05<00:08, 19.74it/s]
+train epoch[1/3] loss:0.216:  36%|███▋      | 98/270 [00:05<00:08, 19.81it/s]
+train epoch[1/3] loss:0.717:  37%|███▋      | 100/270 [00:05<00:08, 19.85it/s]
+train epoch[1/3] loss:0.741:  38%|███▊      | 102/270 [00:05<00:08, 19.87it/s]
+train epoch[1/3] loss:0.507:  39%|███▊      | 104/270 [00:05<00:08, 19.89it/s]
+train epoch[1/3] loss:0.281:  39%|███▉      | 106/270 [00:06<00:08, 19.72it/s]
+train epoch[1/3] loss:0.168:  40%|████      | 108/270 [00:06<00:08, 19.78it/s]
+train epoch[1/3] loss:0.790:  41%|████      | 110/270 [00:06<00:08, 19.84it/s]
+train epoch[1/3] loss:0.329:  41%|████▏     | 112/270 [00:06<00:08, 19.67it/s]
+train epoch[1/3] loss:0.334:  42%|████▏     | 114/270 [00:06<00:07, 19.67it/s]
+train epoch[1/3] loss:0.625:  43%|████▎     | 116/270 [00:06<00:07, 19.55it/s]
+train epoch[1/3] loss:0.266:  44%|████▎     | 118/270 [00:06<00:07, 19.48it/s]
+train epoch[1/3] loss:0.409:  44%|████▍     | 120/270 [00:06<00:07, 19.44it/s]
+train epoch[1/3] loss:0.398:  45%|████▌     | 122/270 [00:06<00:07, 19.59it/s]
+train epoch[1/3] loss:0.215:  46%|████▌     | 124/270 [00:06<00:07, 19.67it/s]
+train epoch[1/3] loss:0.425:  47%|████▋     | 126/270 [00:07<00:07, 19.74it/s]
+train epoch[1/3] loss:0.677:  47%|████▋     | 128/270 [00:07<00:07, 19.74it/s]
+train epoch[1/3] loss:0.751:  48%|████▊     | 130/270 [00:07<00:07, 19.68it/s]
+train epoch[1/3] loss:0.193:  49%|████▉     | 132/270 [00:07<00:07, 19.65it/s]
+train epoch[1/3] loss:0.098:  50%|████▉     | 134/270 [00:07<00:06, 19.66it/s]
+train epoch[1/3] loss:0.349:  50%|█████     | 136/270 [00:07<00:06, 19.63it/s]
+train epoch[1/3] loss:0.333:  51%|█████     | 138/270 [00:07<00:06, 19.70it/s]
+train epoch[1/3] loss:0.309:  52%|█████▏    | 140/270 [00:07<00:06, 19.61it/s]
+train epoch[1/3] loss:1.279:  53%|█████▎    | 142/270 [00:07<00:06, 19.54it/s]
+train epoch[1/3] loss:0.653:  53%|█████▎    | 144/270 [00:07<00:06, 19.64it/s]
+train epoch[1/3] loss:0.694:  54%|█████▍    | 146/270 [00:08<00:06, 19.55it/s]
+train epoch[1/3] loss:0.177:  55%|█████▍    | 148/270 [00:08<00:06, 19.62it/s]
+train epoch[1/3] loss:0.579:  56%|█████▌    | 150/270 [00:08<00:06, 19.70it/s]
+train epoch[1/3] loss:0.533:  56%|█████▋    | 152/270 [00:08<00:05, 19.78it/s]
+train epoch[1/3] loss:0.759:  57%|█████▋    | 154/270 [00:08<00:05, 19.79it/s]
+train epoch[1/3] loss:0.860:  58%|█████▊    | 156/270 [00:08<00:05, 19.77it/s]
+train epoch[1/3] loss:0.438:  59%|█████▊    | 158/270 [00:08<00:05, 19.78it/s]
+train epoch[1/3] loss:0.694:  59%|█████▉    | 160/270 [00:08<00:05, 19.83it/s]
+train epoch[1/3] loss:0.265:  60%|██████    | 162/270 [00:08<00:05, 19.81it/s]
+train epoch[1/3] loss:0.286:  61%|██████    | 164/270 [00:08<00:05, 19.83it/s]
+train epoch[1/3] loss:0.508:  61%|██████▏   | 166/270 [00:09<00:05, 19.85it/s]
+train epoch[1/3] loss:0.558:  62%|██████▏   | 168/270 [00:09<00:05, 19.71it/s]
+train epoch[1/3] loss:0.812:  63%|██████▎   | 170/270 [00:09<00:05, 19.76it/s]
+train epoch[1/3] loss:0.251:  64%|██████▎   | 172/270 [00:09<00:04, 19.80it/s]
+train epoch[1/3] loss:0.492:  64%|██████▍   | 174/270 [00:09<00:04, 19.75it/s]
+train epoch[1/3] loss:0.506:  65%|██████▌   | 176/270 [00:09<00:04, 19.76it/s]
+train epoch[1/3] loss:0.712:  66%|██████▌   | 178/270 [00:09<00:04, 19.78it/s]
+train epoch[1/3] loss:0.235:  67%|██████▋   | 180/270 [00:09<00:04, 19.80it/s]
+train epoch[1/3] loss:0.283:  67%|██████▋   | 182/270 [00:09<00:04, 19.79it/s]
+train epoch[1/3] loss:0.318:  68%|██████▊   | 184/270 [00:09<00:04, 19.76it/s]
+train epoch[1/3] loss:0.869:  69%|██████▉   | 186/270 [00:10<00:04, 19.54it/s]
+train epoch[1/3] loss:0.254:  70%|██████▉   | 188/270 [00:10<00:04, 19.64it/s]
+train epoch[1/3] loss:0.826:  70%|███████   | 190/270 [00:10<00:04, 19.71it/s]
+train epoch[1/3] loss:0.660:  71%|███████   | 192/270 [00:10<00:03, 19.75it/s]
+train epoch[1/3] loss:0.263:  72%|███████▏  | 194/270 [00:10<00:03, 19.80it/s]
+train epoch[1/3] loss:0.843:  73%|███████▎  | 196/270 [00:10<00:03, 19.75it/s]
+train epoch[1/3] loss:0.499:  73%|███████▎  | 198/270 [00:10<00:03, 19.73it/s]
+train epoch[1/3] loss:0.708:  74%|███████▍  | 200/270 [00:10<00:03, 19.78it/s]
+train epoch[1/3] loss:0.788:  75%|███████▍  | 202/270 [00:10<00:03, 19.83it/s]
+train epoch[1/3] loss:0.236:  76%|███████▌  | 204/270 [00:10<00:03, 19.82it/s]
+train epoch[1/3] loss:0.223:  76%|███████▋  | 206/270 [00:11<00:03, 19.87it/s]
+train epoch[1/3] loss:0.105:  77%|███████▋  | 208/270 [00:11<00:03, 19.87it/s]
+train epoch[1/3] loss:0.258:  78%|███████▊  | 210/270 [00:11<00:03, 19.85it/s]
+train epoch[1/3] loss:0.216:  79%|███████▊  | 212/270 [00:11<00:02, 19.87it/s]
+train epoch[1/3] loss:0.143:  79%|███████▉  | 214/270 [00:11<00:02, 19.79it/s]
+train epoch[1/3] loss:0.709:  80%|████████  | 216/270 [00:11<00:02, 19.50it/s]
+train epoch[1/3] loss:0.335:  81%|████████  | 218/270 [00:11<00:02, 19.42it/s]
+train epoch[1/3] loss:0.792:  81%|████████▏ | 220/270 [00:11<00:02, 19.47it/s]
+train epoch[1/3] loss:0.585:  82%|████████▏ | 222/270 [00:11<00:02, 19.61it/s]
+train epoch[1/3] loss:0.662:  83%|████████▎ | 224/270 [00:11<00:02, 19.70it/s]
+train epoch[1/3] loss:0.186:  84%|████████▎ | 226/270 [00:12<00:02, 19.76it/s]
+train epoch[1/3] loss:0.225:  84%|████████▍ | 228/270 [00:12<00:02, 19.58it/s]
+train epoch[1/3] loss:0.274:  85%|████████▌ | 230/270 [00:12<00:02, 19.66it/s]
+train epoch[1/3] loss:0.626:  86%|████████▌ | 232/270 [00:12<00:01, 19.74it/s]
+train epoch[1/3] loss:0.450:  87%|████████▋ | 234/270 [00:12<00:01, 19.78it/s]
+train epoch[1/3] loss:0.177:  87%|████████▋ | 236/270 [00:12<00:01, 19.82it/s]
+train epoch[1/3] loss:0.270:  88%|████████▊ | 238/270 [00:12<00:01, 19.86it/s]
+train epoch[1/3] loss:0.454:  89%|████████▉ | 240/270 [00:12<00:01, 19.88it/s]
+train epoch[1/3] loss:0.179:  90%|████████▉ | 242/270 [00:12<00:01, 19.81it/s]
+train epoch[1/3] loss:0.678:  90%|█████████ | 244/270 [00:13<00:01, 19.65it/s]
+train epoch[1/3] loss:0.239:  91%|█████████ | 246/270 [00:13<00:01, 19.66it/s]
+train epoch[1/3] loss:0.146:  92%|█████████▏| 248/270 [00:13<00:01, 19.74it/s]
+train epoch[1/3] loss:1.100:  93%|█████████▎| 250/270 [00:13<00:01, 19.81it/s]
+train epoch[1/3] loss:0.223:  93%|█████████▎| 252/270 [00:13<00:00, 19.83it/s]
+train epoch[1/3] loss:0.230:  94%|█████████▍| 254/270 [00:13<00:00, 19.80it/s]
+train epoch[1/3] loss:0.097:  95%|█████████▍| 256/270 [00:13<00:00, 19.83it/s]
+train epoch[1/3] loss:0.237:  96%|█████████▌| 259/270 [00:13<00:00, 19.92it/s]
+train epoch[1/3] loss:0.525:  97%|█████████▋| 261/270 [00:13<00:00, 19.93it/s]
+train epoch[1/3] loss:0.378:  98%|█████████▊| 264/270 [00:14<00:00, 19.97it/s]
+train epoch[1/3] loss:0.699:  99%|█████████▉| 267/270 [00:14<00:00, 19.99it/s]
+train epoch[1/3] loss:0.139: 100%|██████████| 270/270 [00:14<00:00, 20.34it/s]
+train epoch[1/3] loss:0.139: 100%|██████████| 270/270 [00:14<00:00, 18.78it/s]
+
+  0%|          | 0/270 [00:00<?, ?it/s]
+valid epoch[1/3]:   0%|          | 1/270 [00:00<02:40,  1.68it/s]
+valid epoch[1/3]:   3%|▎         | 7/270 [00:00<00:20, 12.74it/s]
+valid epoch[1/3]:   4%|▍         | 12/270 [00:00<00:12, 20.63it/s]
+valid epoch[1/3]:   7%|▋         | 18/270 [00:00<00:08, 28.96it/s]
+valid epoch[1/3]:   9%|▉         | 24/270 [00:01<00:06, 35.39it/s]
+valid epoch[1/3]:  11%|█         | 30/270 [00:01<00:06, 39.52it/s]
+valid epoch[1/3]:  13%|█▎        | 36/270 [00:01<00:05, 42.76it/s]
+valid epoch[1/3]:  15%|█▌        | 41/270 [00:01<00:05, 44.61it/s]
+valid epoch[1/3]:  17%|█▋        | 46/270 [00:01<00:04, 45.74it/s]
+valid epoch[1/3]:  19%|█▉        | 52/270 [00:01<00:04, 47.16it/s]
+valid epoch[1/3]:  21%|██        | 57/270 [00:01<00:04, 44.85it/s]
+valid epoch[1/3]:  23%|██▎       | 62/270 [00:01<00:04, 46.18it/s]
+valid epoch[1/3]:  25%|██▌       | 68/270 [00:01<00:04, 47.62it/s]
+valid epoch[1/3]:  27%|██▋       | 74/270 [00:02<00:04, 48.86it/s]
+valid epoch[1/3]:  30%|██▉       | 80/270 [00:02<00:03, 50.07it/s]
+valid epoch[1/3]:  32%|███▏      | 86/270 [00:02<00:03, 49.91it/s]
+valid epoch[1/3]:  34%|███▍      | 92/270 [00:02<00:03, 49.78it/s]
+valid epoch[1/3]:  36%|███▋      | 98/270 [00:02<00:03, 49.91it/s]
+valid epoch[1/3]:  39%|███▊      | 104/270 [00:02<00:03, 49.72it/s]
+valid epoch[1/3]:  40%|████      | 109/270 [00:02<00:03, 49.54it/s]
+valid epoch[1/3]:  43%|████▎     | 115/270 [00:02<00:03, 49.66it/s]
+valid epoch[1/3]:  44%|████▍     | 120/270 [00:02<00:03, 46.99it/s]
+valid epoch[1/3]:  46%|████▋     | 125/270 [00:03<00:03, 45.96it/s]
+valid epoch[1/3]:  48%|████▊     | 130/270 [00:03<00:03, 45.90it/s]
+valid epoch[1/3]:  50%|█████     | 135/270 [00:03<00:02, 46.76it/s]
+valid epoch[1/3]:  52%|█████▏    | 140/270 [00:03<00:02, 46.77it/s]
+valid epoch[1/3]:  54%|█████▎    | 145/270 [00:03<00:02, 47.63it/s]
+valid epoch[1/3]:  56%|█████▌    | 151/270 [00:03<00:02, 48.85it/s]
+valid epoch[1/3]:  58%|█████▊    | 156/270 [00:03<00:02, 46.99it/s]
+valid epoch[1/3]:  60%|█████▉    | 161/270 [00:03<00:02, 47.59it/s]
+valid epoch[1/3]:  62%|██████▏   | 167/270 [00:03<00:02, 48.19it/s]
+valid epoch[1/3]:  64%|██████▎   | 172/270 [00:04<00:02, 44.69it/s]
+valid epoch[1/3]:  66%|██████▌   | 177/270 [00:04<00:02, 45.90it/s]
+valid epoch[1/3]:  68%|██████▊   | 183/270 [00:04<00:01, 47.34it/s]
+valid epoch[1/3]:  70%|██████▉   | 188/270 [00:04<00:01, 47.49it/s]
+valid epoch[1/3]:  71%|███████▏  | 193/270 [00:04<00:01, 46.50it/s]
+valid epoch[1/3]:  73%|███████▎  | 198/270 [00:04<00:01, 44.58it/s]
+valid epoch[1/3]:  75%|███████▌  | 203/270 [00:04<00:01, 45.59it/s]
+valid epoch[1/3]:  77%|███████▋  | 208/270 [00:04<00:01, 45.61it/s]
+valid epoch[1/3]:  79%|███████▉  | 214/270 [00:05<00:01, 47.07it/s]
+valid epoch[1/3]:  81%|████████▏ | 220/270 [00:05<00:01, 48.18it/s]
+valid epoch[1/3]:  84%|████████▎ | 226/270 [00:05<00:00, 48.63it/s]
+valid epoch[1/3]:  86%|████████▌ | 232/270 [00:05<00:00, 49.11it/s]
+valid epoch[1/3]:  88%|████████▊ | 238/270 [00:05<00:00, 49.52it/s]
+valid epoch[1/3]:  90%|█████████ | 243/270 [00:05<00:00, 49.57it/s]
+valid epoch[1/3]:  92%|█████████▏| 249/270 [00:05<00:00, 49.97it/s]
+valid epoch[1/3]:  94%|█████████▍| 254/270 [00:05<00:00, 49.67it/s]
+valid epoch[1/3]:  96%|█████████▋| 260/270 [00:05<00:00, 50.58it/s]
+valid epoch[1/3]:  99%|█████████▊| 266/270 [00:06<00:00, 52.04it/s]
+valid epoch[1/3]: 100%|██████████| 270/270 [00:06<00:00, 43.78it/s]
+[epoch 1] train_loss: 0.503  val_accuracy: 0.947
+
+  0%|          | 0/270 [00:00<?, ?it/s]
+train epoch[2/3] loss:0.418:   0%|          | 1/270 [00:00<02:30,  1.79it/s]
+train epoch[2/3] loss:0.085:   1%|          | 3/270 [00:00<00:50,  5.31it/s]
+train epoch[2/3] loss:1.067:   2%|▏         | 6/270 [00:00<00:27,  9.70it/s]
+train epoch[2/3] loss:0.567:   3%|▎         | 8/270 [00:00<00:21, 11.95it/s]
+train epoch[2/3] loss:0.274:   4%|▎         | 10/270 [00:01<00:19, 13.67it/s]
+train epoch[2/3] loss:0.721:   4%|▍         | 12/270 [00:01<00:17, 15.12it/s]
+train epoch[2/3] loss:0.319:   5%|▌         | 14/270 [00:01<00:15, 16.39it/s]
+train epoch[2/3] loss:0.489:   6%|▌         | 16/270 [00:01<00:14, 17.25it/s]
+train epoch[2/3] loss:0.358:   7%|▋         | 18/270 [00:01<00:14, 17.88it/s]
+train epoch[2/3] loss:0.449:   7%|▋         | 20/270 [00:01<00:13, 18.40it/s]
+train epoch[2/3] loss:0.192:   8%|▊         | 22/270 [00:01<00:13, 18.67it/s]
+train epoch[2/3] loss:0.780:   9%|▉         | 24/270 [00:01<00:12, 18.96it/s]
+train epoch[2/3] loss:0.171:  10%|▉         | 26/270 [00:01<00:12, 19.13it/s]
+train epoch[2/3] loss:0.318:  10%|█         | 28/270 [00:01<00:12, 19.38it/s]
+train epoch[2/3] loss:0.463:  11%|█         | 30/270 [00:02<00:12, 19.50it/s]
+train epoch[2/3] loss:0.274:  12%|█▏        | 32/270 [00:02<00:12, 19.45it/s]
+train epoch[2/3] loss:0.361:  13%|█▎        | 34/270 [00:02<00:12, 19.59it/s]
+train epoch[2/3] loss:0.336:  13%|█▎        | 36/270 [00:02<00:12, 19.49it/s]
+train epoch[2/3] loss:0.418:  14%|█▍        | 38/270 [00:02<00:11, 19.46it/s]
+train epoch[2/3] loss:0.194:  15%|█▌        | 41/270 [00:02<00:11, 19.68it/s]
+train epoch[2/3] loss:0.723:  16%|█▌        | 43/270 [00:02<00:11, 19.69it/s]
+train epoch[2/3] loss:0.399:  17%|█▋        | 45/270 [00:02<00:11, 19.72it/s]
+train epoch[2/3] loss:0.246:  17%|█▋        | 47/270 [00:02<00:11, 19.76it/s]
+train epoch[2/3] loss:0.175:  18%|█▊        | 49/270 [00:03<00:11, 19.81it/s]
+train epoch[2/3] loss:0.581:  19%|█▉        | 51/270 [00:03<00:11, 19.80it/s]
+train epoch[2/3] loss:0.081:  20%|█▉        | 53/270 [00:03<00:11, 19.65it/s]
+train epoch[2/3] loss:0.103:  20%|██        | 55/270 [00:03<00:10, 19.75it/s]
+train epoch[2/3] loss:0.367:  21%|██        | 57/270 [00:03<00:10, 19.81it/s]
+train epoch[2/3] loss:0.139:  22%|██▏       | 59/270 [00:03<00:10, 19.82it/s]
+train epoch[2/3] loss:0.374:  23%|██▎       | 62/270 [00:03<00:10, 19.87it/s]
+train epoch[2/3] loss:0.375:  24%|██▎       | 64/270 [00:03<00:10, 19.89it/s]
+train epoch[2/3] loss:0.253:  24%|██▍       | 66/270 [00:03<00:10, 19.91it/s]
+train epoch[2/3] loss:0.316:  25%|██▌       | 68/270 [00:03<00:10, 19.92it/s]
+train epoch[2/3] loss:0.627:  26%|██▋       | 71/270 [00:04<00:09, 19.95it/s]
+train epoch[2/3] loss:0.343:  27%|██▋       | 73/270 [00:04<00:09, 19.96it/s]
+train epoch[2/3] loss:0.311:  28%|██▊       | 75/270 [00:04<00:09, 19.60it/s]
+train epoch[2/3] loss:0.270:  29%|██▊       | 77/270 [00:04<00:09, 19.70it/s]
+train epoch[2/3] loss:0.380:  29%|██▉       | 79/270 [00:04<00:09, 19.75it/s]
+train epoch[2/3] loss:0.697:  30%|███       | 81/270 [00:04<00:09, 19.80it/s]
+train epoch[2/3] loss:0.191:  31%|███       | 83/270 [00:04<00:09, 19.82it/s]
+train epoch[2/3] loss:0.127:  32%|███▏      | 86/270 [00:04<00:09, 19.89it/s]
+train epoch[2/3] loss:0.073:  33%|███▎      | 88/270 [00:04<00:09, 19.89it/s]
+train epoch[2/3] loss:0.587:  33%|███▎      | 90/270 [00:05<00:09, 19.88it/s]
+train epoch[2/3] loss:0.366:  34%|███▍      | 92/270 [00:05<00:08, 19.89it/s]
+train epoch[2/3] loss:1.222:  35%|███▍      | 94/270 [00:05<00:08, 19.91it/s]
+train epoch[2/3] loss:0.043:  36%|███▌      | 96/270 [00:05<00:08, 19.92it/s]
+train epoch[2/3] loss:0.174:  36%|███▋      | 98/270 [00:05<00:08, 19.91it/s]
+train epoch[2/3] loss:0.186:  37%|███▋      | 100/270 [00:05<00:08, 19.92it/s]
+train epoch[2/3] loss:0.087:  38%|███▊      | 103/270 [00:05<00:08, 19.97it/s]
+train epoch[2/3] loss:0.449:  39%|███▉      | 106/270 [00:05<00:08, 19.99it/s]
+train epoch[2/3] loss:0.255:  40%|████      | 108/270 [00:05<00:08, 19.93it/s]
+train epoch[2/3] loss:0.567:  41%|████      | 110/270 [00:06<00:08, 19.90it/s]
+train epoch[2/3] loss:0.064:  41%|████▏     | 112/270 [00:06<00:07, 19.90it/s]
+train epoch[2/3] loss:0.312:  42%|████▏     | 114/270 [00:06<00:07, 19.89it/s]
+train epoch[2/3] loss:0.639:  43%|████▎     | 116/270 [00:06<00:07, 19.86it/s]
+train epoch[2/3] loss:0.581:  44%|████▎     | 118/270 [00:06<00:07, 19.77it/s]
+train epoch[2/3] loss:0.150:  44%|████▍     | 120/270 [00:06<00:07, 19.78it/s]
+train epoch[2/3] loss:0.127:  45%|████▌     | 122/270 [00:06<00:07, 19.70it/s]
+train epoch[2/3] loss:0.118:  46%|████▌     | 124/270 [00:06<00:07, 19.70it/s]
+train epoch[2/3] loss:0.239:  47%|████▋     | 126/270 [00:06<00:07, 19.64it/s]
+train epoch[2/3] loss:0.197:  47%|████▋     | 128/270 [00:06<00:07, 19.73it/s]
+train epoch[2/3] loss:0.381:  48%|████▊     | 130/270 [00:07<00:07, 19.79it/s]
+train epoch[2/3] loss:0.172:  49%|████▉     | 132/270 [00:07<00:06, 19.77it/s]
+train epoch[2/3] loss:0.206:  50%|████▉     | 134/270 [00:07<00:06, 19.74it/s]
+train epoch[2/3] loss:0.288:  50%|█████     | 136/270 [00:07<00:06, 19.76it/s]
+train epoch[2/3] loss:0.402:  51%|█████     | 138/270 [00:07<00:06, 19.61it/s]
+train epoch[2/3] loss:0.214:  52%|█████▏    | 140/270 [00:07<00:06, 19.66it/s]
+train epoch[2/3] loss:0.110:  53%|█████▎    | 142/270 [00:07<00:06, 19.63it/s]
+train epoch[2/3] loss:0.140:  54%|█████▎    | 145/270 [00:07<00:06, 19.78it/s]
+train epoch[2/3] loss:0.212:  54%|█████▍    | 147/270 [00:07<00:06, 19.79it/s]
+train epoch[2/3] loss:0.285:  55%|█████▌    | 149/270 [00:08<00:06, 19.69it/s]
+train epoch[2/3] loss:0.351:  56%|█████▌    | 151/270 [00:08<00:06, 19.61it/s]
+train epoch[2/3] loss:0.184:  57%|█████▋    | 153/270 [00:08<00:05, 19.61it/s]
+train epoch[2/3] loss:0.305:  57%|█████▋    | 155/270 [00:08<00:05, 19.69it/s]
+train epoch[2/3] loss:0.156:  58%|█████▊    | 157/270 [00:08<00:05, 19.77it/s]
+train epoch[2/3] loss:0.256:  59%|█████▉    | 159/270 [00:08<00:05, 19.83it/s]
+train epoch[2/3] loss:0.189:  60%|█████▉    | 161/270 [00:08<00:05, 19.86it/s]
+train epoch[2/3] loss:0.114:  61%|██████    | 164/270 [00:08<00:05, 19.94it/s]
+train epoch[2/3] loss:0.517:  61%|██████▏   | 166/270 [00:08<00:05, 19.95it/s]
+train epoch[2/3] loss:0.628:  62%|██████▏   | 168/270 [00:09<00:05, 19.94it/s]
+train epoch[2/3] loss:0.417:  63%|██████▎   | 170/270 [00:09<00:05, 19.91it/s]
+train epoch[2/3] loss:0.136:  64%|██████▎   | 172/270 [00:09<00:04, 19.91it/s]
+train epoch[2/3] loss:0.055:  64%|██████▍   | 174/270 [00:09<00:04, 19.89it/s]
+train epoch[2/3] loss:0.576:  65%|██████▌   | 176/270 [00:09<00:04, 19.89it/s]
+train epoch[2/3] loss:0.244:  66%|██████▌   | 178/270 [00:09<00:04, 19.90it/s]
+train epoch[2/3] loss:0.629:  67%|██████▋   | 180/270 [00:09<00:04, 19.86it/s]
+train epoch[2/3] loss:0.440:  67%|██████▋   | 182/270 [00:09<00:04, 19.66it/s]
+train epoch[2/3] loss:0.650:  69%|██████▊   | 185/270 [00:09<00:04, 19.79it/s]
+train epoch[2/3] loss:0.648:  69%|██████▉   | 187/270 [00:09<00:04, 19.80it/s]
+train epoch[2/3] loss:0.253:  70%|███████   | 189/270 [00:10<00:04, 19.85it/s]
+train epoch[2/3] loss:0.509:  71%|███████   | 191/270 [00:10<00:03, 19.88it/s]
+train epoch[2/3] loss:0.196:  71%|███████▏  | 193/270 [00:10<00:03, 19.91it/s]
+train epoch[2/3] loss:0.190:  72%|███████▏  | 195/270 [00:10<00:03, 19.86it/s]
+train epoch[2/3] loss:0.054:  73%|███████▎  | 197/270 [00:10<00:03, 19.89it/s]
+train epoch[2/3] loss:0.522:  74%|███████▍  | 200/270 [00:10<00:03, 19.95it/s]
+train epoch[2/3] loss:0.609:  75%|███████▍  | 202/270 [00:10<00:03, 19.85it/s]
+train epoch[2/3] loss:0.470:  76%|███████▌  | 204/270 [00:10<00:03, 19.85it/s]
+train epoch[2/3] loss:0.457:  76%|███████▋  | 206/270 [00:10<00:03, 19.85it/s]
+train epoch[2/3] loss:0.203:  77%|███████▋  | 208/270 [00:11<00:03, 19.79it/s]
+train epoch[2/3] loss:0.160:  78%|███████▊  | 210/270 [00:11<00:03, 19.80it/s]
+train epoch[2/3] loss:0.473:  79%|███████▊  | 212/270 [00:11<00:02, 19.82it/s]
+train epoch[2/3] loss:0.774:  79%|███████▉  | 214/270 [00:11<00:02, 19.86it/s]
+train epoch[2/3] loss:0.223:  80%|████████  | 217/270 [00:11<00:02, 19.91it/s]
+train epoch[2/3] loss:0.308:  81%|████████  | 219/270 [00:11<00:02, 19.93it/s]
+train epoch[2/3] loss:0.315:  82%|████████▏ | 222/270 [00:11<00:02, 19.96it/s]
+train epoch[2/3] loss:0.206:  83%|████████▎ | 224/270 [00:11<00:02, 19.94it/s]
+train epoch[2/3] loss:0.544:  84%|████████▎ | 226/270 [00:11<00:02, 19.92it/s]
+train epoch[2/3] loss:0.575:  84%|████████▍ | 228/270 [00:12<00:02, 19.86it/s]
+train epoch[2/3] loss:0.223:  85%|████████▌ | 230/270 [00:12<00:02, 19.80it/s]
+train epoch[2/3] loss:0.188:  86%|████████▌ | 232/270 [00:12<00:01, 19.85it/s]
+train epoch[2/3] loss:0.435:  87%|████████▋ | 234/270 [00:12<00:01, 19.89it/s]
+train epoch[2/3] loss:0.388:  88%|████████▊ | 237/270 [00:12<00:01, 19.92it/s]
+train epoch[2/3] loss:0.299:  89%|████████▊ | 239/270 [00:12<00:01, 19.92it/s]
+train epoch[2/3] loss:0.286:  89%|████████▉ | 241/270 [00:12<00:01, 19.93it/s]
+train epoch[2/3] loss:0.077:  90%|█████████ | 244/270 [00:12<00:01, 19.96it/s]
+train epoch[2/3] loss:0.991:  91%|█████████ | 246/270 [00:12<00:01, 19.95it/s]
+train epoch[2/3] loss:0.124:  92%|█████████▏| 248/270 [00:13<00:01, 19.96it/s]
+train epoch[2/3] loss:0.409:  93%|█████████▎| 250/270 [00:13<00:01, 19.97it/s]
+train epoch[2/3] loss:0.137:  94%|█████████▎| 253/270 [00:13<00:00, 19.94it/s]
+train epoch[2/3] loss:0.224:  94%|█████████▍| 255/270 [00:13<00:00, 19.84it/s]
+train epoch[2/3] loss:0.175:  96%|█████████▌| 258/270 [00:13<00:00, 19.91it/s]
+train epoch[2/3] loss:0.264:  97%|█████████▋| 261/270 [00:13<00:00, 19.96it/s]
+train epoch[2/3] loss:0.479:  98%|█████████▊| 264/270 [00:13<00:00, 20.00it/s]
+train epoch[2/3] loss:0.204:  99%|█████████▉| 267/270 [00:13<00:00, 20.02it/s]
+train epoch[2/3] loss:0.246: 100%|██████████| 270/270 [00:14<00:00, 20.34it/s]
+train epoch[2/3] loss:0.246: 100%|██████████| 270/270 [00:14<00:00, 19.01it/s]
+
+  0%|          | 0/270 [00:00<?, ?it/s]
+valid epoch[2/3]:   0%|          | 1/270 [00:00<02:16,  1.97it/s]
+valid epoch[2/3]:   1%|▏         | 4/270 [00:00<00:33,  8.03it/s]
+valid epoch[2/3]:   3%|▎         | 9/270 [00:00<00:14, 17.55it/s]
+valid epoch[2/3]:   5%|▌         | 14/270 [00:00<00:10, 25.58it/s]
+valid epoch[2/3]:   7%|▋         | 19/270 [00:00<00:07, 31.74it/s]
+valid epoch[2/3]:   9%|▉         | 24/270 [00:01<00:06, 36.20it/s]
+valid epoch[2/3]:  11%|█         | 30/270 [00:01<00:05, 40.86it/s]
+valid epoch[2/3]:  13%|█▎        | 36/270 [00:01<00:05, 43.78it/s]
+valid epoch[2/3]:  16%|█▌        | 42/270 [00:01<00:04, 45.61it/s]
+valid epoch[2/3]:  17%|█▋        | 47/270 [00:01<00:04, 46.33it/s]
+valid epoch[2/3]:  20%|█▉        | 53/270 [00:01<00:04, 48.28it/s]
+valid epoch[2/3]:  21%|██▏       | 58/270 [00:01<00:04, 48.21it/s]
+valid epoch[2/3]:  23%|██▎       | 63/270 [00:01<00:04, 47.16it/s]
+valid epoch[2/3]:  26%|██▌       | 69/270 [00:01<00:04, 48.34it/s]
+valid epoch[2/3]:  28%|██▊       | 75/270 [00:02<00:03, 49.09it/s]
+valid epoch[2/3]:  30%|███       | 81/270 [00:02<00:03, 49.60it/s]
+valid epoch[2/3]:  32%|███▏      | 87/270 [00:02<00:03, 49.98it/s]
+valid epoch[2/3]:  34%|███▍      | 93/270 [00:02<00:03, 50.00it/s]
+valid epoch[2/3]:  37%|███▋      | 99/270 [00:02<00:03, 50.47it/s]
+valid epoch[2/3]:  39%|███▉      | 105/270 [00:02<00:03, 50.34it/s]
+valid epoch[2/3]:  41%|████      | 111/270 [00:02<00:03, 48.21it/s]
+valid epoch[2/3]:  43%|████▎     | 116/270 [00:02<00:03, 48.39it/s]
+valid epoch[2/3]:  45%|████▌     | 122/270 [00:03<00:03, 49.12it/s]
+valid epoch[2/3]:  47%|████▋     | 127/270 [00:03<00:02, 49.17it/s]
+valid epoch[2/3]:  49%|████▉     | 132/270 [00:03<00:02, 48.88it/s]
+valid epoch[2/3]:  51%|█████     | 137/270 [00:03<00:02, 49.18it/s]
+valid epoch[2/3]:  53%|█████▎    | 143/270 [00:03<00:02, 49.55it/s]
+valid epoch[2/3]:  55%|█████▌    | 149/270 [00:03<00:02, 49.68it/s]
+valid epoch[2/3]:  57%|█████▋    | 155/270 [00:03<00:02, 49.64it/s]
+valid epoch[2/3]:  59%|█████▉    | 160/270 [00:03<00:02, 49.56it/s]
+valid epoch[2/3]:  61%|██████    | 165/270 [00:03<00:02, 49.64it/s]
+valid epoch[2/3]:  63%|██████▎   | 170/270 [00:03<00:02, 49.46it/s]
+valid epoch[2/3]:  65%|██████▍   | 175/270 [00:04<00:02, 47.20it/s]
+valid epoch[2/3]:  67%|██████▋   | 180/270 [00:04<00:01, 46.40it/s]
+valid epoch[2/3]:  69%|██████▊   | 185/270 [00:04<00:01, 46.08it/s]
+valid epoch[2/3]:  70%|███████   | 190/270 [00:04<00:01, 46.71it/s]
+valid epoch[2/3]:  72%|███████▏  | 195/270 [00:04<00:01, 45.18it/s]
+valid epoch[2/3]:  74%|███████▍  | 200/270 [00:04<00:01, 45.82it/s]
+valid epoch[2/3]:  76%|███████▌  | 205/270 [00:04<00:01, 43.97it/s]
+valid epoch[2/3]:  78%|███████▊  | 210/270 [00:04<00:01, 45.46it/s]
+valid epoch[2/3]:  80%|████████  | 216/270 [00:04<00:01, 47.16it/s]
+valid epoch[2/3]:  82%|████████▏ | 222/270 [00:05<00:00, 48.58it/s]
+valid epoch[2/3]:  84%|████████▍ | 228/270 [00:05<00:00, 49.60it/s]
+valid epoch[2/3]:  86%|████████▋ | 233/270 [00:05<00:00, 49.16it/s]
+valid epoch[2/3]:  88%|████████▊ | 238/270 [00:05<00:00, 49.16it/s]
+valid epoch[2/3]:  90%|█████████ | 243/270 [00:05<00:00, 49.17it/s]
+valid epoch[2/3]:  92%|█████████▏| 248/270 [00:05<00:00, 47.84it/s]
+valid epoch[2/3]:  94%|█████████▎| 253/270 [00:05<00:00, 47.82it/s]
+valid epoch[2/3]:  96%|█████████▌| 259/270 [00:05<00:00, 50.04it/s]
+valid epoch[2/3]:  98%|█████████▊| 265/270 [00:05<00:00, 51.79it/s]
+valid epoch[2/3]: 100%|██████████| 270/270 [00:06<00:00, 44.13it/s]
+[epoch 2] train_loss: 0.362  val_accuracy: 0.959
+
+  0%|          | 0/270 [00:00<?, ?it/s]
+train epoch[3/3] loss:0.385:   0%|          | 1/270 [00:00<02:33,  1.76it/s]
+train epoch[3/3] loss:0.103:   1%|▏         | 4/270 [00:00<00:39,  6.77it/s]
+train epoch[3/3] loss:0.079:   3%|▎         | 7/270 [00:00<00:24, 10.53it/s]
+train epoch[3/3] loss:0.363:   3%|▎         | 9/270 [00:00<00:20, 12.46it/s]
+train epoch[3/3] loss:0.260:   4%|▍         | 11/270 [00:01<00:18, 14.20it/s]
+train epoch[3/3] loss:0.442:   5%|▌         | 14/270 [00:01<00:15, 16.22it/s]
+train epoch[3/3] loss:0.147:   6%|▌         | 16/270 [00:01<00:14, 17.04it/s]
+train epoch[3/3] loss:0.399:   7%|▋         | 18/270 [00:01<00:14, 17.77it/s]
+train epoch[3/3] loss:0.166:   7%|▋         | 20/270 [00:01<00:13, 18.27it/s]
+train epoch[3/3] loss:0.537:   8%|▊         | 22/270 [00:01<00:13, 18.74it/s]
+train epoch[3/3] loss:0.365:   9%|▉         | 24/270 [00:01<00:12, 19.08it/s]
+train epoch[3/3] loss:0.197:  10%|█         | 27/270 [00:01<00:12, 19.44it/s]
+train epoch[3/3] loss:0.124:  11%|█         | 29/270 [00:01<00:12, 19.56it/s]
+train epoch[3/3] loss:0.130:  11%|█▏        | 31/270 [00:02<00:12, 19.66it/s]
+train epoch[3/3] loss:0.444:  12%|█▏        | 33/270 [00:02<00:12, 19.74it/s]
+train epoch[3/3] loss:0.196:  13%|█▎        | 35/270 [00:02<00:11, 19.79it/s]
+train epoch[3/3] loss:0.177:  14%|█▎        | 37/270 [00:02<00:11, 19.83it/s]
+train epoch[3/3] loss:0.075:  14%|█▍        | 39/270 [00:02<00:11, 19.83it/s]
+train epoch[3/3] loss:0.376:  15%|█▌        | 41/270 [00:02<00:11, 19.84it/s]
+train epoch[3/3] loss:0.086:  16%|█▋        | 44/270 [00:02<00:11, 19.90it/s]
+train epoch[3/3] loss:0.425:  17%|█▋        | 47/270 [00:02<00:11, 19.95it/s]
+train epoch[3/3] loss:0.388:  19%|█▊        | 50/270 [00:03<00:11, 19.98it/s]
+train epoch[3/3] loss:0.232:  19%|█▉        | 52/270 [00:03<00:10, 19.92it/s]
+train epoch[3/3] loss:0.345:  20%|██        | 54/270 [00:03<00:10, 19.84it/s]
+train epoch[3/3] loss:0.408:  21%|██        | 57/270 [00:03<00:10, 19.91it/s]
+train epoch[3/3] loss:0.577:  22%|██▏       | 59/270 [00:03<00:10, 19.90it/s]
+train epoch[3/3] loss:0.215:  23%|██▎       | 61/270 [00:03<00:10, 19.87it/s]
+train epoch[3/3] loss:0.135:  23%|██▎       | 63/270 [00:03<00:10, 19.90it/s]
+train epoch[3/3] loss:0.331:  24%|██▍       | 65/270 [00:03<00:10, 19.85it/s]
+train epoch[3/3] loss:0.231:  25%|██▍       | 67/270 [00:03<00:10, 19.78it/s]
+train epoch[3/3] loss:0.274:  26%|██▌       | 69/270 [00:03<00:10, 19.83it/s]
+train epoch[3/3] loss:0.261:  26%|██▋       | 71/270 [00:04<00:10, 19.88it/s]
+train epoch[3/3] loss:0.208:  27%|██▋       | 74/270 [00:04<00:09, 19.94it/s]
+train epoch[3/3] loss:0.263:  29%|██▊       | 77/270 [00:04<00:09, 19.93it/s]
+train epoch[3/3] loss:0.427:  29%|██▉       | 79/270 [00:04<00:09, 19.85it/s]
+train epoch[3/3] loss:0.292:  30%|███       | 81/270 [00:04<00:09, 19.89it/s]
+train epoch[3/3] loss:0.357:  31%|███       | 84/270 [00:04<00:09, 19.93it/s]
+train epoch[3/3] loss:0.206:  32%|███▏      | 86/270 [00:04<00:09, 19.77it/s]
+train epoch[3/3] loss:0.419:  33%|███▎      | 88/270 [00:04<00:09, 19.81it/s]
+train epoch[3/3] loss:0.366:  33%|███▎      | 90/270 [00:05<00:09, 19.85it/s]
+train epoch[3/3] loss:0.176:  34%|███▍      | 93/270 [00:05<00:08, 19.91it/s]
+train epoch[3/3] loss:0.176:  35%|███▌      | 95/270 [00:05<00:08, 19.92it/s]
+train epoch[3/3] loss:0.292:  36%|███▌      | 97/270 [00:05<00:08, 19.92it/s]
+train epoch[3/3] loss:0.100:  37%|███▋      | 99/270 [00:05<00:08, 19.91it/s]
+train epoch[3/3] loss:0.544:  37%|███▋      | 101/270 [00:05<00:08, 19.91it/s]
+train epoch[3/3] loss:0.614:  38%|███▊      | 103/270 [00:05<00:08, 19.92it/s]
+train epoch[3/3] loss:0.201:  39%|███▉      | 106/270 [00:05<00:08, 19.97it/s]
+train epoch[3/3] loss:0.224:  40%|████      | 109/270 [00:05<00:08, 19.99it/s]
+train epoch[3/3] loss:0.257:  41%|████▏     | 112/270 [00:06<00:07, 20.03it/s]
+train epoch[3/3] loss:0.300:  43%|████▎     | 115/270 [00:06<00:07, 20.03it/s]
+train epoch[3/3] loss:0.149:  44%|████▎     | 118/270 [00:06<00:07, 20.02it/s]
+train epoch[3/3] loss:0.039:  45%|████▍     | 121/270 [00:06<00:07, 20.02it/s]
+train epoch[3/3] loss:0.364:  46%|████▌     | 124/270 [00:06<00:07, 20.02it/s]
+train epoch[3/3] loss:0.159:  47%|████▋     | 127/270 [00:06<00:07, 20.02it/s]
+train epoch[3/3] loss:0.150:  48%|████▊     | 130/270 [00:07<00:07, 19.88it/s]
+train epoch[3/3] loss:0.301:  49%|████▉     | 132/270 [00:07<00:06, 19.80it/s]
+train epoch[3/3] loss:0.072:  50%|████▉     | 134/270 [00:07<00:06, 19.82it/s]
+train epoch[3/3] loss:0.314:  50%|█████     | 136/270 [00:07<00:06, 19.85it/s]
+train epoch[3/3] loss:0.501:  51%|█████     | 138/270 [00:07<00:06, 19.72it/s]
+train epoch[3/3] loss:0.119:  52%|█████▏    | 140/270 [00:07<00:06, 19.65it/s]
+train epoch[3/3] loss:0.324:  53%|█████▎    | 142/270 [00:07<00:06, 19.71it/s]
+train epoch[3/3] loss:0.356:  53%|█████▎    | 144/270 [00:07<00:06, 19.79it/s]
+train epoch[3/3] loss:0.292:  54%|█████▍    | 146/270 [00:07<00:06, 19.82it/s]
+train epoch[3/3] loss:0.643:  55%|█████▍    | 148/270 [00:07<00:06, 19.82it/s]
+train epoch[3/3] loss:0.119:  56%|█████▌    | 150/270 [00:08<00:06, 19.72it/s]
+train epoch[3/3] loss:0.333:  56%|█████▋    | 152/270 [00:08<00:05, 19.71it/s]
+train epoch[3/3] loss:0.518:  57%|█████▋    | 154/270 [00:08<00:05, 19.76it/s]
+train epoch[3/3] loss:0.478:  58%|█████▊    | 156/270 [00:08<00:05, 19.64it/s]
+train epoch[3/3] loss:0.163:  59%|█████▊    | 158/270 [00:08<00:05, 19.46it/s]
+train epoch[3/3] loss:0.439:  59%|█████▉    | 160/270 [00:08<00:05, 19.32it/s]
+train epoch[3/3] loss:0.059:  60%|██████    | 162/270 [00:08<00:05, 19.26it/s]
+train epoch[3/3] loss:0.083:  61%|██████    | 164/270 [00:08<00:05, 19.42it/s]
+train epoch[3/3] loss:0.202:  61%|██████▏   | 166/270 [00:08<00:05, 19.58it/s]
+train epoch[3/3] loss:0.368:  62%|██████▏   | 168/270 [00:08<00:05, 19.65it/s]
+train epoch[3/3] loss:0.228:  63%|██████▎   | 170/270 [00:09<00:05, 19.68it/s]
+train epoch[3/3] loss:0.338:  64%|██████▎   | 172/270 [00:09<00:04, 19.70it/s]
+train epoch[3/3] loss:0.324:  64%|██████▍   | 174/270 [00:09<00:04, 19.67it/s]
+train epoch[3/3] loss:0.277:  66%|██████▌   | 177/270 [00:09<00:04, 19.81it/s]
+train epoch[3/3] loss:0.380:  67%|██████▋   | 180/270 [00:09<00:04, 19.84it/s]
+train epoch[3/3] loss:0.290:  67%|██████▋   | 182/270 [00:09<00:04, 19.78it/s]
+train epoch[3/3] loss:0.158:  68%|██████▊   | 184/270 [00:09<00:04, 19.84it/s]
+train epoch[3/3] loss:0.445:  69%|██████▉   | 186/270 [00:09<00:04, 19.86it/s]
+train epoch[3/3] loss:0.273:  70%|██████▉   | 188/270 [00:09<00:04, 19.87it/s]
+train epoch[3/3] loss:0.066:  70%|███████   | 190/270 [00:10<00:04, 19.84it/s]
+train epoch[3/3] loss:0.214:  71%|███████   | 192/270 [00:10<00:03, 19.87it/s]
+train epoch[3/3] loss:0.400:  72%|███████▏  | 194/270 [00:10<00:03, 19.79it/s]
+train epoch[3/3] loss:0.178:  73%|███████▎  | 196/270 [00:10<00:03, 19.78it/s]
+train epoch[3/3] loss:0.299:  73%|███████▎  | 198/270 [00:10<00:03, 19.73it/s]
+train epoch[3/3] loss:0.233:  74%|███████▍  | 200/270 [00:10<00:03, 19.69it/s]
+train epoch[3/3] loss:0.141:  75%|███████▍  | 202/270 [00:10<00:03, 19.59it/s]
+train epoch[3/3] loss:0.218:  76%|███████▌  | 204/270 [00:10<00:03, 19.53it/s]
+train epoch[3/3] loss:0.511:  76%|███████▋  | 206/270 [00:10<00:03, 19.55it/s]
+train epoch[3/3] loss:0.216:  77%|███████▋  | 209/270 [00:11<00:03, 19.74it/s]
+train epoch[3/3] loss:0.365:  78%|███████▊  | 211/270 [00:11<00:03, 19.64it/s]
+train epoch[3/3] loss:0.229:  79%|███████▉  | 213/270 [00:11<00:02, 19.73it/s]
+train epoch[3/3] loss:0.080:  80%|███████▉  | 215/270 [00:11<00:02, 19.80it/s]
+train epoch[3/3] loss:0.162:  80%|████████  | 217/270 [00:11<00:02, 19.81it/s]
+train epoch[3/3] loss:0.284:  81%|████████  | 219/270 [00:11<00:02, 19.78it/s]
+train epoch[3/3] loss:0.109:  82%|████████▏ | 221/270 [00:11<00:02, 19.82it/s]
+train epoch[3/3] loss:0.274:  83%|████████▎ | 224/270 [00:11<00:02, 19.89it/s]
+train epoch[3/3] loss:0.344:  84%|████████▎ | 226/270 [00:11<00:02, 19.91it/s]
+train epoch[3/3] loss:0.381:  84%|████████▍ | 228/270 [00:12<00:02, 19.92it/s]
+train epoch[3/3] loss:0.160:  85%|████████▌ | 230/270 [00:12<00:02, 19.92it/s]
+train epoch[3/3] loss:0.947:  86%|████████▌ | 232/270 [00:12<00:01, 19.92it/s]
+train epoch[3/3] loss:0.242:  87%|████████▋ | 234/270 [00:12<00:01, 19.94it/s]
+train epoch[3/3] loss:0.526:  87%|████████▋ | 236/270 [00:12<00:01, 19.94it/s]
+train epoch[3/3] loss:0.451:  89%|████████▊ | 239/270 [00:12<00:01, 19.97it/s]
+train epoch[3/3] loss:0.199:  89%|████████▉ | 241/270 [00:12<00:01, 19.96it/s]
+train epoch[3/3] loss:0.175:  90%|█████████ | 243/270 [00:12<00:01, 19.96it/s]
+train epoch[3/3] loss:0.340:  91%|█████████ | 246/270 [00:12<00:01, 19.98it/s]
+train epoch[3/3] loss:0.501:  92%|█████████▏| 248/270 [00:13<00:01, 19.97it/s]
+train epoch[3/3] loss:0.584:  93%|█████████▎| 250/270 [00:13<00:01, 19.95it/s]
+train epoch[3/3] loss:0.181:  93%|█████████▎| 252/270 [00:13<00:00, 19.96it/s]
+train epoch[3/3] loss:0.360:  94%|█████████▍| 254/270 [00:13<00:00, 19.93it/s]
+train epoch[3/3] loss:0.269:  95%|█████████▌| 257/270 [00:13<00:00, 19.99it/s]
+train epoch[3/3] loss:0.267:  96%|█████████▋| 260/270 [00:13<00:00, 20.02it/s]
+train epoch[3/3] loss:0.310:  97%|█████████▋| 263/270 [00:13<00:00, 20.07it/s]
+train epoch[3/3] loss:0.450:  99%|█████████▊| 266/270 [00:13<00:00, 20.09it/s]
+train epoch[3/3] loss:0.551: 100%|█████████▉| 269/270 [00:14<00:00, 20.10it/s]
+train epoch[3/3] loss:0.072: 100%|██████████| 270/270 [00:14<00:00, 19.05it/s]
+
+  0%|          | 0/270 [00:00<?, ?it/s]
+valid epoch[3/3]:   0%|          | 1/270 [00:00<02:27,  1.82it/s]
+valid epoch[3/3]:   2%|▏         | 6/270 [00:00<00:22, 11.63it/s]
+valid epoch[3/3]:   4%|▍         | 11/270 [00:00<00:12, 20.09it/s]
+valid epoch[3/3]:   6%|▋         | 17/270 [00:00<00:08, 29.24it/s]
+valid epoch[3/3]:   8%|▊         | 22/270 [00:00<00:07, 34.45it/s]
+valid epoch[3/3]:  10%|█         | 27/270 [00:01<00:06, 38.47it/s]
+valid epoch[3/3]:  12%|█▏        | 32/270 [00:01<00:05, 41.59it/s]
+valid epoch[3/3]:  14%|█▍        | 38/270 [00:01<00:05, 44.38it/s]
+valid epoch[3/3]:  16%|█▌        | 43/270 [00:01<00:04, 45.79it/s]
+valid epoch[3/3]:  18%|█▊        | 49/270 [00:01<00:04, 47.17it/s]
+valid epoch[3/3]:  20%|██        | 55/270 [00:01<00:04, 48.40it/s]
+valid epoch[3/3]:  23%|██▎       | 61/270 [00:01<00:04, 48.34it/s]
+valid epoch[3/3]:  25%|██▍       | 67/270 [00:01<00:04, 48.87it/s]
+valid epoch[3/3]:  27%|██▋       | 73/270 [00:01<00:03, 50.15it/s]
+valid epoch[3/3]:  29%|██▉       | 79/270 [00:02<00:03, 50.28it/s]
+valid epoch[3/3]:  31%|███▏      | 85/270 [00:02<00:03, 50.42it/s]
+valid epoch[3/3]:  34%|███▎      | 91/270 [00:02<00:03, 49.55it/s]
+valid epoch[3/3]:  36%|███▌      | 97/270 [00:02<00:03, 49.95it/s]
+valid epoch[3/3]:  38%|███▊      | 103/270 [00:02<00:03, 50.12it/s]
+valid epoch[3/3]:  40%|████      | 109/270 [00:02<00:03, 49.42it/s]
+valid epoch[3/3]:  43%|████▎     | 115/270 [00:02<00:03, 49.71it/s]
+valid epoch[3/3]:  45%|████▍     | 121/270 [00:02<00:02, 50.31it/s]
+valid epoch[3/3]:  47%|████▋     | 127/270 [00:03<00:02, 49.68it/s]
+valid epoch[3/3]:  49%|████▉     | 133/270 [00:03<00:02, 50.10it/s]
+valid epoch[3/3]:  51%|█████▏    | 139/270 [00:03<00:02, 50.01it/s]
+valid epoch[3/3]:  54%|█████▎    | 145/270 [00:03<00:02, 49.85it/s]
+valid epoch[3/3]:  56%|█████▌    | 151/270 [00:03<00:02, 50.02it/s]
+valid epoch[3/3]:  58%|█████▊    | 157/270 [00:03<00:02, 50.39it/s]
+valid epoch[3/3]:  60%|██████    | 163/270 [00:03<00:02, 50.64it/s]
+valid epoch[3/3]:  63%|██████▎   | 169/270 [00:03<00:02, 50.14it/s]
+valid epoch[3/3]:  65%|██████▍   | 175/270 [00:04<00:01, 49.23it/s]
+valid epoch[3/3]:  67%|██████▋   | 180/270 [00:04<00:01, 49.39it/s]
+valid epoch[3/3]:  69%|██████▊   | 185/270 [00:04<00:01, 48.69it/s]
+valid epoch[3/3]:  70%|███████   | 190/270 [00:04<00:01, 48.13it/s]
+valid epoch[3/3]:  72%|███████▏  | 195/270 [00:04<00:01, 45.81it/s]
+valid epoch[3/3]:  74%|███████▍  | 200/270 [00:04<00:01, 46.01it/s]
+valid epoch[3/3]:  76%|███████▌  | 205/270 [00:04<00:01, 46.46it/s]
+valid epoch[3/3]:  78%|███████▊  | 210/270 [00:04<00:01, 46.50it/s]
+valid epoch[3/3]:  80%|███████▉  | 215/270 [00:04<00:01, 43.77it/s]
+valid epoch[3/3]:  82%|████████▏ | 221/270 [00:05<00:01, 45.52it/s]
+valid epoch[3/3]:  84%|████████▍ | 227/270 [00:05<00:00, 47.07it/s]
+valid epoch[3/3]:  86%|████████▌ | 232/270 [00:05<00:00, 47.68it/s]
+valid epoch[3/3]:  88%|████████▊ | 237/270 [00:05<00:00, 48.21it/s]
+valid epoch[3/3]:  90%|████████▉ | 242/270 [00:05<00:00, 47.44it/s]
+valid epoch[3/3]:  91%|█████████▏| 247/270 [00:05<00:00, 42.91it/s]
+valid epoch[3/3]:  94%|█████████▎| 253/270 [00:05<00:00, 45.06it/s]
+valid epoch[3/3]:  96%|█████████▌| 259/270 [00:05<00:00, 47.03it/s]
+valid epoch[3/3]:  98%|█████████▊| 265/270 [00:05<00:00, 49.55it/s]
+valid epoch[3/3]: 100%|██████████| 270/270 [00:06<00:00, 44.26it/s]
+[epoch 3] train_loss: 0.311  val_accuracy: 0.959
+
+  0%|          | 0/270 [00:00<?, ?it/s]
+  0%|          | 1/270 [00:00<02:39,  1.69it/s]
+  3%|▎         | 7/270 [00:00<00:20, 12.80it/s]
+  4%|▍         | 12/270 [00:00<00:12, 20.48it/s]
+  7%|▋         | 18/270 [00:00<00:08, 28.53it/s]
+  9%|▉         | 24/270 [00:01<00:07, 34.80it/s]
+ 11%|█         | 30/270 [00:01<00:06, 39.56it/s]
+ 13%|█▎        | 36/270 [00:01<00:05, 42.57it/s]
+ 15%|█▌        | 41/270 [00:01<00:05, 43.76it/s]
+ 17%|█▋        | 46/270 [00:01<00:05, 43.71it/s]
+ 19%|█▉        | 52/270 [00:01<00:04, 45.78it/s]
+ 21%|██        | 57/270 [00:01<00:04, 46.86it/s]
+ 23%|██▎       | 62/270 [00:01<00:04, 44.91it/s]
+ 25%|██▍       | 67/270 [00:01<00:04, 46.21it/s]
+ 27%|██▋       | 72/270 [00:02<00:04, 46.33it/s]
+ 29%|██▉       | 78/270 [00:02<00:04, 47.77it/s]
+ 31%|███       | 83/270 [00:02<00:03, 48.35it/s]
+ 33%|███▎      | 88/270 [00:02<00:03, 48.76it/s]
+ 35%|███▍      | 94/270 [00:02<00:03, 49.26it/s]
+ 37%|███▋      | 100/270 [00:02<00:03, 49.37it/s]
+ 39%|███▉      | 105/270 [00:02<00:03, 49.25it/s]
+ 41%|████      | 110/270 [00:02<00:03, 48.36it/s]
+ 43%|████▎     | 115/270 [00:02<00:03, 48.70it/s]
+ 45%|████▍     | 121/270 [00:03<00:03, 49.49it/s]
+ 47%|████▋     | 126/270 [00:03<00:02, 49.44it/s]
+ 49%|████▉     | 132/270 [00:03<00:02, 50.07it/s]
+ 51%|█████     | 138/270 [00:03<00:02, 50.46it/s]
+ 53%|█████▎    | 144/270 [00:03<00:02, 50.54it/s]
+ 56%|█████▌    | 150/270 [00:03<00:02, 51.04it/s]
+ 58%|█████▊    | 156/270 [00:03<00:02, 50.75it/s]
+ 60%|██████    | 162/270 [00:03<00:02, 50.42it/s]
+ 62%|██████▏   | 168/270 [00:03<00:02, 50.00it/s]
+ 64%|██████▍   | 174/270 [00:04<00:01, 49.97it/s]
+ 66%|██████▋   | 179/270 [00:04<00:01, 48.37it/s]
+ 69%|██████▊   | 185/270 [00:04<00:01, 48.99it/s]
+ 70%|███████   | 190/270 [00:04<00:01, 48.83it/s]
+ 72%|███████▏  | 195/270 [00:04<00:01, 48.34it/s]
+ 74%|███████▍  | 200/270 [00:04<00:01, 45.33it/s]
+ 76%|███████▌  | 205/270 [00:04<00:01, 45.55it/s]
+ 78%|███████▊  | 211/270 [00:04<00:01, 46.97it/s]
+ 80%|████████  | 216/270 [00:04<00:01, 47.11it/s]
+ 82%|████████▏ | 221/270 [00:05<00:01, 47.80it/s]
+ 84%|████████▍ | 227/270 [00:05<00:00, 48.21it/s]
+ 86%|████████▌ | 232/270 [00:05<00:00, 48.48it/s]
+ 88%|████████▊ | 237/270 [00:05<00:00, 48.79it/s]
+ 90%|█████████ | 243/270 [00:05<00:00, 49.85it/s]
+ 92%|█████████▏| 248/270 [00:05<00:00, 49.40it/s]
+ 94%|█████████▎| 253/270 [00:05<00:00, 49.46it/s]
+ 96%|█████████▌| 259/270 [00:05<00:00, 50.14it/s]
+ 98%|█████████▊| 265/270 [00:05<00:00, 51.96it/s]
+100%|██████████| 270/270 [00:06<00:00, 44.03it/s]
+Finished Training
+<class 'str'>
+<class 'numpy.ndarray'>
+<class 'numpy.ndarray'>
+<class 'list'>
+{"0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0, "28": 0, "29": 0, "30": 0, "31": 0, "32": 0, "33": 0, "34": 0, "35": 0, "36": 0, "37": 0, "38": 0, "39": 0, "40": 0, "41": 0, "42": 0, "43": 0, "44": 0, "45": 0, "46": 0, "47": 0, "48": 0, "49": 0, "50": 0, "51": 0, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "57": 0, "58": 0, "59": 0, "60": 0, "61": 0, "62": 0, "63": 0, "64": 0, "65": 0, "66": 0, "67": 0, "68": 0, "69": 0, "70": 0, "71": 0, "72": 0, "73": 0, "74": 0, "75": 0, "76": 0, "77": 0, "78": 0, "79": 0, "80": 0, "81": 0, "82": 0, "83": 0, "84": 0, "85": 0, "86": 0, "87": 0, "88": 0, "89": 0, "90": 0, "91": 0, "92": 0, "93": 0, "94": 0, "95": 0, "96": 0, "97": 0, "98": 0, "99": 0, "100": 0, "101": 0, "102": 0, "103": 0, "104": 0, "105": 0, "106": 0, "107": 0, "108": 0, "109": 0, "110": 0, "111": 0, "112": 0, "113": 0, "114": 0, "115": 0, "116": 0, "117": 0, "118": 0, "119": 0, "120": 0, "121": 0, "122": 0, "123": 0, "124": 0, "125": 0, "126": 0, "127": 0, "128": 0, "129": 0, "130": 0, "131": 0, "132": 0, "133": 0, "134": 0, "135": 0, "136": 0, "137": 0, "138": 0, "139": 0, "140": 0, "141": 0, "142": 0, "143": 0, "144": 0, "145": 0, "146": 0, "147": 0, "148": 0, "149": 0, "150": 0, "151": 0, "152": 0, "153": 0, "154": 0, "155": 0, "156": 0, "157": 0, "158": 0, "159": 0, "160": 0, "161": 0, "162": 0, "163": 0, "164": 0, "165": 0, "166": 0, "167": 0, "168": 0, "169": 0, "170": 0, "171": 0, "172": 0, "173": 0, "174": 0, "175": 0, "176": 0, "177": 0, "178": 0, "179": 0, "180": 0, "181": 0, "182": 0, "183": 0, "184": 0, "185": 0, "186": 0, "187": 0, "188": 0, "189": 0, "190": 0, "191": 0, "192": 0, "193": 0, "194": 0, "195": 0, "196": 0, "197": 0, "198": 0, "199": 0, "200": 0, "201": 0, "202": 0, "203": 0, "204": 0, "205": 0, "206": 0, "207": 0, "208": 0, "209": 0, "210": 0, "211": 0, "212": 0, "213": 0, "214": 0, "215": 0, "216": 0, "217": 0, "218": 0, "219": 0, "220": 0, "221": 0, "222": 0, "223": 0, "224": 0, "225": 0, "226": 0, "227": 0, "228": 0, "229": 0, "230": 0, "231": 0, "232": 0, "233": 0, "234": 0, "235": 0, "236": 0, "237": 0, "238": 0, "239": 0, "240": 0, "241": 0, "242": 0, "243": 0, "244": 0, "245": 0, "246": 0, "247": 0, "248": 0, "249": 0, "250": 0, "251": 0, "252": 0, "253": 0, "254": 0, "255": 0, "256": 0, "257": 0, "258": 0, "259": 0, "260": 0, "261": 0, "262": 0, "263": 0, "264": 0, "265": 0, "266": 0, "267": 0, "268": 0, "269": 0, "270": 0, "271": 0, "272": 0, "273": 0, "274": 0, "275": 0, "276": 0, "277": 0, "278": 0, "279": 0, "280": 0, "281": 0, "282": 0, "283": 0, "284": 0, "285": 0, "286": 0, "287": 0, "288": 0, "289": 0, "290": 0, "291": 0, "292": 0, "293": 0, "294": 0, "295": 0, "296": 0, "297": 0, "298": 0, "299": 0, "300": 0, "301": 0, "302": 0, "303": 0, "304": 0, "305": 0, "306": 0, "307": 0, "308": 0, "309": 0, "310": 0, "311": 0, "312": 0, "313": 0, "314": 0, "315": 0, "316": 0, "317": 0, "318": 0, "319": 0, "320": 0, "321": 0, "322": 0, "323": 0, "324": 0, "325": 0, "326": 0, "327": 0, "328": 0, "329": 0, "330": 0, "331": 0, "332": 0, "333": 0, "334": 0, "335": 0, "336": 0, "337": 0, "338": 0, "339": 0, "340": 0, "341": 0, "342": 0, "343": 0, "344": 0, "345": 0, "346": 0, "347": 0, "348": 0, "349": 0, "350": 0, "351": 0, "352": 0, "353": 0, "354": 0, "355": 0, "356": 0, "357": 0, "358": 0, "359": 0, "360": 0, "361": 0, "362": 0, "363": 0, "364": 0, "365": 0, "366": 0, "367": 0, "368": 0, "369": 0, "370": 0, "371": 0, "372": 0, "373": 0, "374": 0, "375": 0, "376": 0, "377": 0, "378": 0, "379": 0, "380": 0, "381": 0, "382": 0, "383": 0, "384": 0, "385": 0, "386": 0, "387": 0, "388": 0, "389": 0, "390": 0, "391": 0, "392": 0, "393": 0, "394": 0, "395": 0, "396": 0, "397": 0, "398": 0, "399": 0, "400": 0, "401": 0, "402": 0, "403": 0, "404": 0, "405": 0, "406": 0, "407": 0, "408": 0, "409": 0, "410": 0, "411": 0, "412": 0, "413": 0, "414": 0, "415": 0, "416": 0, "417": 0, "418": 0, "419": 0, "420": 0, "421": 0, "422": 0, "423": 0, "424": 0, "425": 0, "426": 0, "427": 0, "428": 0, "429": 0, "430": 0, "431": 0, "432": 0, "433": 0, "434": 0, "435": 0, "436": 0, "437": 0, "438": 0, "439": 0, "440": 0, "441": 0, "442": 0, "443": 0, "444": 0, "445": 0, "446": 0, "447": 0, "448": 0, "449": 0, "450": 0, "451": 0, "452": 0, "453": 0, "454": 0, "455": 0, "456": 0, "457": 0, "458": 0, "459": 0, "460": 0, "461": 0, "462": 0, "463": 0, "464": 0, "465": 0, "466": 0, "467": 0, "468": 0, "469": 0, "470": 0, "471": 0, "472": 0, "473": 0, "474": 0, "475": 0, "476": 0, "477": 0, "478": 0, "479": 0, "480": 0, "481": 0, "482": 0, "483": 0, "484": 0, "485": 0, "486": 0, "487": 0, "488": 0, "489": 0, "490": 0, "491": 0, "492": 0, "493": 0, "494": 0, "495": 0, "496": 0, "497": 0, "498": 0, "499": 0, "500": 0, "501": 0, "502": 0, "503": 0, "504": 0, "505": 0, "506": 0, "507": 0, "508": 0, "509": 0, "510": 0, "511": 0, "512": 0, "513": 0, "514": 0, "515": 0, "516": 0, "517": 0, "518": 0, "519": 0, "520": 0, "521": 0, "522": 0, "523": 0, "524": 0, "525": 0, "526": 0, "527": 0, "528": 0, "529": 0, "530": 0, "531": 0, "532": 0, "533": 0, "534": 0, "535": 0, "536": 0, "537": 0, "538": 0, "539": 0, "540": 0, "541": 0, "542": 0, "543": 0, "544": 0, "545": 0, "546": 0, "547": 0, "548": 0, "549": 0, "550": 0, "551": 0, "552": 0, "553": 0, "554": 0, "555": 0, "556": 0, "557": 0, "558": 0, "559": 0, "560": 0, "561": 0, "562": 0, "563": 0, "564": 0, "565": 0, "566": 0, "567": 0, "568": 0, "569": 0, "570": 0, "571": 0, "572": 0, "573": 0, "574": 0, "575": 0, "576": 0, "577": 0, "578": 0, "579": 0, "580": 0, "581": 0, "582": 0, "583": 0, "584": 0, "585": 0, "586": 0, "587": 0, "588": 0, "589": 0, "590": 0, "591": 0, "592": 0, "593": 0, "594": 0, "595": 0, "596": 0, "597": 0, "598": 0, "599": 0, "600": 0, "601": 0, "602": 0, "603": 0, "604": 0, "605": 0, "606": 0, "607": 0, "608": 0, "609": 0, "610": 0, "611": 0, "612": 0, "613": 0, "614": 0, "615": 0, "616": 0, "617": 0, "618": 0, "619": 0, "620": 0, "621": 0, "622": 0, "623": 0, "624": 0, "625": 0, "626": 0, "627": 0, "628": 0, "629": 0, "630": 0, "631": 0, "632": 0, "633": 0, "634": 0, "635": 0, "636": 0, "637": 0, "638": 0, "639": 0, "640": 0, "641": 0, "642": 0, "643": 0, "644": 0, "645": 0, "646": 0, "647": 0, "648": 0, "649": 0, "650": 0, "651": 0, "652": 0, "653": 0, "654": 0, "655": 0, "656": 0, "657": 0, "658": 0, "659": 0, "660": 0, "661": 0, "662": 0, "663": 0, "664": 0, "665": 0, "666": 0, "667": 0, "668": 0, "669": 0, "670": 0, "671": 0, "672": 0, "673": 0, "674": 0, "675": 0, "676": 0, "677": 0, "678": 0, "679": 0, "680": 0, "681": 0, "682": 0, "683": 0, "684": 0, "685": 0, "686": 0, "687": 0, "688": 0, "689": 0, "690": 0, "691": 0, "692": 0, "693": 0, "694": 0, "695": 0, "696": 0, "697": 0, "698": 0, "699": 0, "700": 0, "701": 0, "702": 0, "703": 0, "704": 0, "705": 0, "706": 0, "707": 0, "708": 0, "709": 0, "710": 0, "711": 0, "712": 0, "713": 0, "714": 0, "715": 0, "716": 0, "717": 0, "718": 0, "719": 0, "720": 0, "721": 0, "722": 0, "723": 0, "724": 0, "725": 0, "726": 0, "727": 0, "728": 0, "729": 0, "730": 0, "731": 0, "732": 0, "733": 0, "734": 0, "735": 0, "736": 0, "737": 0, "738": 0, "739": 0, "740": 0, "741": 0, "742": 0, "743": 0, "744": 0, "745": 0, "746": 0, "747": 0, "748": 0, "749": 0, "750": 0, "751": 0, "752": 0, "753": 0, "754": 0, "755": 0, "756": 0, "757": 0, "758": 0, "759": 0, "760": 0, "761": 0, "762": 0, "763": 0, "764": 1, "765": 1, "766": 1, "767": 1, "768": 1, "769": 1, "770": 1, "771": 1, "772": 1, "773": 1, "774": 1, "775": 1, "776": 1, "777": 1, "778": 1, "779": 1, "780": 1, "781": 1, "782": 1, "783": 1, "784": 1, "785": 1, "786": 1, "787": 1, "788": 1, "789": 1, "790": 1, "791": 1, "792": 1, "793": 1, "794": 1, "795": 1, "796": 1, "797": 1, "798": 1, "799": 1, "800": 1, "801": 1, "802": 1, "803": 1, "804": 1, "805": 1, "806": 1, "807": 1, "808": 1, "809": 1, "810": 1, "811": 1, "812": 1, "813": 1, "814": 1, "815": 1, "816": 1, "817": 1, "818": 1, "819": 1, "820": 1, "821": 1, "822": 1, "823": 1, "824": 1, "825": 1, "826": 1, "827": 1, "828": 1, "829": 1, "830": 1, "831": 1, "832": 1, "833": 1, "834": 1, "835": 1, "836": 1, "837": 1, "838": 1, "839": 1, "840": 1, "841": 1, "842": 1, "843": 1, "844": 1, "845": 1, "846": 1, "847": 1, "848": 1, "849": 1, "850": 1, "851": 1, "852": 1, "853": 1, "854": 1, "855": 1, "856": 1, "857": 1, "858": 1, "859": 1, "860": 1, "861": 1, "862": 1, "863": 1, "864": 1, "865": 1, "866": 1, "867": 1, "868": 1, "869": 1, "870": 1, "871": 1, "872": 1, "873": 1, "874": 1, "875": 1, "876": 1, "877": 1, "878": 1, "879": 1, "880": 1, "881": 1, "882": 1, "883": 1, "884": 1, "885": 1, "886": 1, "887": 1, "888": 1, "889": 1, "890": 1, "891": 1, "892": 1, "893": 1, "894": 1, "895": 1, "896": 1, "897": 1, "898": 1, "899": 1, "900": 1, "901": 1, "902": 1, "903": 1, "904": 1, "905": 1, "906": 1, "907": 1, "908": 1, "909": 1, "910": 1, "911": 1, "912": 1, "913": 1, "914": 1, "915": 1, "916": 1, "917": 1, "918": 1, "919": 1, "920": 1, "921": 1, "922": 1, "923": 1, "924": 1, "925": 1, "926": 1, "927": 1, "928": 1, "929": 1, "930": 1, "931": 1, "932": 1, "933": 1, "934": 1, "935": 1, "936": 1, "937": 1, "938": 1, "939": 1, "940": 1, "941": 1, "942": 1, "943": 1, "944": 1, "945": 1, "946": 1, "947": 1, "948": 1, "949": 1, "950": 1, "951": 1, "952": 1, "953": 1, "954": 1, "955": 1, "956": 1, "957": 1, "958": 1, "959": 1, "960": 1, "961": 1, "962": 1, "963": 1, "964": 1, "965": 1, "966": 1, "967": 1, "968": 1, "969": 1, "970": 1, "971": 1, "972": 1, "973": 1, "974": 1, "975": 1, "976": 1, "977": 1, "978": 1, "979": 1, "980": 1, "981": 1, "982": 1, "983": 1, "984": 1, "985": 1, "986": 1, "987": 1, "988": 1, "989": 1, "990": 1, "991": 1, "992": 1, "993": 1, "994": 1, "995": 1, "996": 1, "997": 1, "998": 1, "999": 1, "1000": 1, "1001": 1, "1002": 1, "1003": 1, "1004": 1, "1005": 1, "1006": 1, "1007": 1, "1008": 1, "1009": 1, "1010": 1, "1011": 1, "1012": 1, "1013": 1, "1014": 1, "1015": 1, "1016": 1, "1017": 1, "1018": 1, "1019": 1, "1020": 1, "1021": 1, "1022": 1, "1023": 1, "1024": 1, "1025": 1, "1026": 1, "1027": 1, "1028": 1, "1029": 1, "1030": 1, "1031": 1, "1032": 1, "1033": 1, "1034": 1, "1035": 1, "1036": 1, "1037": 1, "1038": 1, "1039": 1, "1040": 1, "1041": 1, "1042": 1, "1043": 1, "1044": 1, "1045": 1, "1046": 1, "1047": 1, "1048": 1, "1049": 1, "1050": 1, "1051": 1, "1052": 1, "1053": 1, "1054": 1, "1055": 1, "1056": 1, "1057": 1, "1058": 1, "1059": 1, "1060": 1, "1061": 1, "1062": 1, "1063": 1, "1064": 1, "1065": 1, "1066": 1, "1067": 1, "1068": 1, "1069": 1, "1070": 1, "1071": 1, "1072": 1, "1073": 1, "1074": 1, "1075": 1, "1076": 1, "1077": 1, "1078": 1, "1079": 1, "1080": 1, "1081": 1, "1082": 1, "1083": 1, "1084": 1, "1085": 1, "1086": 1, "1087": 1, "1088": 1, "1089": 1, "1090": 1, "1091": 1, "1092": 1, "1093": 1, "1094": 1, "1095": 1, "1096": 1, "1097": 1, "1098": 1, "1099": 1, "1100": 1, "1101": 1, "1102": 1, "1103": 1, "1104": 1, "1105": 1, "1106": 1, "1107": 1, "1108": 1, "1109": 1, "1110": 1, "1111": 1, "1112": 1, "1113": 1, "1114": 1, "1115": 1, "1116": 1, "1117": 1, "1118": 1, "1119": 1, "1120": 1, "1121": 1, "1122": 1, "1123": 1, "1124": 1, "1125": 1, "1126": 1, "1127": 1, "1128": 1, "1129": 1, "1130": 1, "1131": 1, "1132": 1, "1133": 1, "1134": 1, "1135": 1, "1136": 1, "1137": 1, "1138": 1, "1139": 1, "1140": 1, "1141": 1, "1142": 1, "1143": 1, "1144": 1, "1145": 1, "1146": 1, "1147": 1, "1148": 1, "1149": 1, "1150": 1, "1151": 1, "1152": 1, "1153": 1, "1154": 1, "1155": 1, "1156": 1, "1157": 1, "1158": 1, "1159": 1, "1160": 1, "1161": 1, "1162": 1, "1163": 1, "1164": 1, "1165": 1, "1166": 1, "1167": 1, "1168": 1, "1169": 1, "1170": 1, "1171": 1, "1172": 1, "1173": 1, "1174": 1, "1175": 1, "1176": 1, "1177": 1, "1178": 1, "1179": 1, "1180": 1, "1181": 1, "1182": 1, "1183": 1, "1184": 1, "1185": 1, "1186": 1, "1187": 1, "1188": 1, "1189": 1, "1190": 1, "1191": 1, "1192": 1, "1193": 1, "1194": 1, "1195": 1, "1196": 1, "1197": 1, "1198": 1, "1199": 1, "1200": 1, "1201": 1, "1202": 1, "1203": 1, "1204": 1, "1205": 1, "1206": 1, "1207": 1, "1208": 1, "1209": 1, "1210": 1, "1211": 1, "1212": 1, "1213": 1, "1214": 1, "1215": 1, "1216": 1, "1217": 1, "1218": 1, "1219": 1, "1220": 1, "1221": 1, "1222": 1, "1223": 1, "1224": 1, "1225": 1, "1226": 1, "1227": 1, "1228": 1, "1229": 1, "1230": 1, "1231": 1, "1232": 1, "1233": 1, "1234": 1, "1235": 1, "1236": 1, "1237": 1, "1238": 1, "1239": 1, "1240": 1, "1241": 1, "1242": 1, "1243": 1, "1244": 1, "1245": 1, "1246": 1, "1247": 1, "1248": 1, "1249": 1, "1250": 1, "1251": 1, "1252": 1, "1253": 1, "1254": 1, "1255": 1, "1256": 1, "1257": 1, "1258": 1, "1259": 1, "1260": 1, "1261": 1, "1262": 1, "1263": 1, "1264": 1, "1265": 1, "1266": 1, "1267": 1, "1268": 1, "1269": 1, "1270": 1, "1271": 1, "1272": 1, "1273": 1, "1274": 1, "1275": 1, "1276": 1, "1277": 1, "1278": 1, "1279": 1, "1280": 1, "1281": 1, "1282": 1, "1283": 1, "1284": 1, "1285": 1, "1286": 1, "1287": 1, "1288": 1, "1289": 1, "1290": 1, "1291": 1, "1292": 1, "1293": 1, "1294": 1, "1295": 1, "1296": 1, "1297": 1, "1298": 1, "1299": 1, "1300": 1, "1301": 1, "1302": 1, "1303": 1, "1304": 1, "1305": 1, "1306": 1, "1307": 1, "1308": 1, "1309": 1, "1310": 1, "1311": 1, "1312": 1, "1313": 1, "1314": 1, "1315": 1, "1316": 1, "1317": 1, "1318": 1, "1319": 1, "1320": 1, "1321": 1, "1322": 1, "1323": 1, "1324": 1, "1325": 1, "1326": 1, "1327": 1, "1328": 1, "1329": 1, "1330": 1, "1331": 1, "1332": 1, "1333": 1, "1334": 1, "1335": 1, "1336": 1, "1337": 1, "1338": 1, "1339": 1, "1340": 1, "1341": 1, "1342": 1, "1343": 1, "1344": 1, "1345": 1, "1346": 1, "1347": 1, "1348": 1, "1349": 1, "1350": 1, "1351": 1, "1352": 1, "1353": 1, "1354": 1, "1355": 1, "1356": 1, "1357": 1, "1358": 1, "1359": 1, "1360": 1, "1361": 1, "1362": 1, "1363": 1, "1364": 1, "1365": 1, "1366": 1, "1367": 1, "1368": 1, "1369": 1, "1370": 1, "1371": 1, "1372": 1, "1373": 1, "1374": 1, "1375": 1, "1376": 1, "1377": 1, "1378": 1, "1379": 1, "1380": 1, "1381": 1, "1382": 1, "1383": 1, "1384": 1, "1385": 1, "1386": 1, "1387": 1, "1388": 1, "1389": 1, "1390": 1, "1391": 1, "1392": 1, "1393": 1, "1394": 1, "1395": 1, "1396": 1, "1397": 1, "1398": 1, "1399": 1, "1400": 1, "1401": 1, "1402": 1, "1403": 1, "1404": 1, "1405": 1, "1406": 1, "1407": 1, "1408": 1, "1409": 1, "1410": 1, "1411": 1, "1412": 1, "1413": 1, "1414": 1, "1415": 1, "1416": 1, "1417": 1, "1418": 1, "1419": 1, "1420": 1, "1421": 1, "1422": 1, "1423": 1, "1424": 1, "1425": 1, "1426": 1, "1427": 1, "1428": 1, "1429": 1, "1430": 1, "1431": 1, "1432": 1, "1433": 1, "1434": 1, "1435": 1, "1436": 1, "1437": 1, "1438": 1, "1439": 1, "1440": 1, "1441": 1, "1442": 1, "1443": 1, "1444": 1, "1445": 1, "1446": 1, "1447": 1, "1448": 1, "1449": 1, "1450": 1, "1451": 1, "1452": 1, "1453": 1, "1454": 1, "1455": 1, "1456": 1, "1457": 1, "1458": 1, "1459": 1, "1460": 1, "1461": 1, "1462": 1, "1463": 1, "1464": 1, "1465": 1, "1466": 1, "1467": 1, "1468": 1, "1469": 1, "1470": 1, "1471": 1, "1472": 1, "1473": 1, "1474": 1, "1475": 1, "1476": 1, "1477": 1, "1478": 1, "1479": 1, "1480": 1, "1481": 1, "1482": 1, "1483": 1, "1484": 1, "1485": 1, "1486": 1, "1487": 1, "1488": 1, "1489": 1, "1490": 1, "1491": 1, "1492": 1, "1493": 1, "1494": 1, "1495": 1, "1496": 1, "1497": 1, "1498": 1, "1499": 1, "1500": 1, "1501": 1, "1502": 1, "1503": 1, "1504": 1, "1505": 1, "1506": 1, "1507": 1, "1508": 1, "1509": 1, "1510": 1, "1511": 1, "1512": 1, "1513": 1, "1514": 1, "1515": 1, "1516": 1, "1517": 1, "1518": 1, "1519": 1, "1520": 1, "1521": 1, "1522": 1, "1523": 1, "1524": 1, "1525": 1, "1526": 1, "1527": 1, "1528": 1, "1529": 1, "1530": 1, "1531": 1, "1532": 1, "1533": 1, "1534": 1, "1535": 1, "1536": 1, "1537": 1, "1538": 1, "1539": 1, "1540": 1, "1541": 1, "1542": 1, "1543": 1, "1544": 1, "1545": 1, "1546": 1, "1547": 1, "1548": 1, "1549": 1, "1550": 1, "1551": 1, "1552": 1, "1553": 1, "1554": 1, "1555": 1, "1556": 1, "1557": 1, "1558": 1, "1559": 1, "1560": 1, "1561": 1, "1562": 1, "1563": 1, "1564": 1, "1565": 1, "1566": 1, "1567": 1, "1568": 1, "1569": 1, "1570": 1, "1571": 1, "1572": 1, "1573": 1, "1574": 1, "1575": 1, "1576": 1, "1577": 1, "1578": 1, "1579": 1, "1580": 1, "1581": 1, "1582": 1, "1583": 1, "1584": 1, "1585": 1, "1586": 1, "1587": 1, "1588": 1, "1589": 1, "1590": 1, "1591": 1, "1592": 1, "1593": 1, "1594": 1, "1595": 1, "1596": 1, "1597": 1, "1598": 1, "1599": 1, "1600": 1, "1601": 1, "1602": 1, "1603": 1, "1604": 1, "1605": 1, "1606": 1, "1607": 1, "1608": 1, "1609": 1, "1610": 1, "1611": 1, "1612": 1, "1613": 1, "1614": 1, "1615": 1, "1616": 1, "1617": 1, "1618": 1, "1619": 1, "1620": 1, "1621": 1, "1622": 1, "1623": 1, "1624": 1, "1625": 1, "1626": 1, "1627": 1, "1628": 1, "1629": 1, "1630": 1, "1631": 1, "1632": 1, "1633": 1, "1634": 1, "1635": 1, "1636": 1, "1637": 1, "1638": 1, "1639": 1, "1640": 1, "1641": 1, "1642": 1, "1643": 1, "1644": 1, "1645": 1, "1646": 1, "1647": 1, "1648": 1, "1649": 1, "1650": 1, "1651": 1, "1652": 1, "1653": 1, "1654": 1, "1655": 1, "1656": 1, "1657": 1, "1658": 1, "1659": 1, "1660": 1, "1661": 1, "1662": 1, "1663": 1, "1664": 1, "1665": 1, "1666": 1, "1667": 1, "1668": 1, "1669": 1, "1670": 1, "1671": 1, "1672": 1, "1673": 1, "1674": 1, "1675": 1, "1676": 1, "1677": 1, "1678": 1, "1679": 1, "1680": 1, "1681": 1, "1682": 1, "1683": 1, "1684": 1, "1685": 1, "1686": 1, "1687": 1, "1688": 1, "1689": 1, "1690": 1, "1691": 1, "1692": 1, "1693": 1, "1694": 1, "1695": 1, "1696": 1, "1697": 1, "1698": 1, "1699": 1, "1700": 1, "1701": 1, "1702": 1, "1703": 1, "1704": 1, "1705": 1, "1706": 1, "1707": 1, "1708": 1, "1709": 1, "1710": 1, "1711": 1, "1712": 1, "1713": 1, "1714": 1, "1715": 1, "1716": 1, "1717": 1, "1718": 1, "1719": 1, "1720": 1, "1721": 1, "1722": 1, "1723": 1, "1724": 1, "1725": 1, "1726": 1, "1727": 1, "1728": 1, "1729": 1, "1730": 1, "1731": 1, "1732": 1, "1733": 1, "1734": 1, "1735": 1, "1736": 1, "1737": 1, "1738": 1, "1739": 1, "1740": 1, "1741": 1, "1742": 1, "1743": 1, "1744": 1, "1745": 1, "1746": 1, "1747": 1, "1748": 1, "1749": 1, "1750": 1, "1751": 1, "1752": 1, "1753": 1, "1754": 1, "1755": 1, "1756": 1, "1757": 1, "1758": 1, "1759": 1, "1760": 1, "1761": 1, "1762": 1, "1763": 1, "1764": 1, "1765": 1, "1766": 1, "1767": 1, "1768": 1, "1769": 1, "1770": 1, "1771": 1, "1772": 1, "1773": 1, "1774": 1, "1775": 1, "1776": 1, "1777": 1, "1778": 1, "1779": 1, "1780": 1, "1781": 1, "1782": 1, "1783": 1, "1784": 1, "1785": 1, "1786": 1, "1787": 1, "1788": 1, "1789": 1, "1790": 1, "1791": 1, "1792": 1, "1793": 1, "1794": 1, "1795": 1, "1796": 1, "1797": 1, "1798": 1, "1799": 1, "1800": 1, "1801": 1, "1802": 1, "1803": 1, "1804": 1, "1805": 1, "1806": 1, "1807": 1, "1808": 1, "1809": 1, "1810": 1, "1811": 1, "1812": 1, "1813": 1, "1814": 1, "1815": 1, "1816": 2, "1817": 2, "1818": 2, "1819": 2, "1820": 2, "1821": 2, "1822": 2, "1823": 2, "1824": 2, "1825": 2, "1826": 2, "1827": 2, "1828": 2, "1829": 2, "1830": 2, "1831": 2, "1832": 2, "1833": 2, "1834": 2, "1835": 2, "1836": 2, "1837": 2, "1838": 2, "1839": 2, "1840": 2, "1841": 2, "1842": 2, "1843": 2, "1844": 2, "1845": 2, "1846": 2, "1847": 2, "1848": 2, "1849": 2, "1850": 2, "1851": 2, "1852": 2, "1853": 2, "1854": 2, "1855": 2, "1856": 2, "1857": 2, "1858": 2, "1859": 2, "1860": 2, "1861": 2, "1862": 2, "1863": 2, "1864": 2, "1865": 2, "1866": 2, "1867": 2, "1868": 2, "1869": 2, "1870": 2, "1871": 2, "1872": 2, "1873": 2, "1874": 2, "1875": 2, "1876": 2, "1877": 2, "1878": 2, "1879": 2, "1880": 2, "1881": 2, "1882": 2, "1883": 2, "1884": 2, "1885": 2, "1886": 2, "1887": 2, "1888": 2, "1889": 2, "1890": 2, "1891": 2, "1892": 2, "1893": 2, "1894": 2, "1895": 2, "1896": 2, "1897": 2, "1898": 2, "1899": 2, "1900": 2, "1901": 2, "1902": 2, "1903": 2, "1904": 2, "1905": 2, "1906": 2, "1907": 2, "1908": 2, "1909": 2, "1910": 2, "1911": 2, "1912": 2, "1913": 2, "1914": 2, "1915": 2, "1916": 2, "1917": 2, "1918": 2, "1919": 2, "1920": 2, "1921": 2, "1922": 2, "1923": 2, "1924": 2, "1925": 2, "1926": 2, "1927": 2, "1928": 2, "1929": 2, "1930": 2, "1931": 2, "1932": 2, "1933": 2, "1934": 2, "1935": 2, "1936": 2, "1937": 2, "1938": 2, "1939": 2, "1940": 2, "1941": 2, "1942": 2, "1943": 2, "1944": 2, "1945": 2, "1946": 2, "1947": 2, "1948": 2, "1949": 2, "1950": 2, "1951": 2, "1952": 2, "1953": 2, "1954": 2, "1955": 2, "1956": 2, "1957": 2, "1958": 2, "1959": 2, "1960": 2, "1961": 2, "1962": 2, "1963": 2, "1964": 2, "1965": 2, "1966": 2, "1967": 2, "1968": 2, "1969": 2, "1970": 2, "1971": 2, "1972": 2, "1973": 2, "1974": 2, "1975": 2, "1976": 2, "1977": 2, "1978": 2, "1979": 2, "1980": 2, "1981": 2, "1982": 2, "1983": 2, "1984": 2, "1985": 2, "1986": 2, "1987": 2, "1988": 2, "1989": 2, "1990": 2, "1991": 2, "1992": 2, "1993": 2, "1994": 2, "1995": 2, "1996": 2, "1997": 2, "1998": 2, "1999": 2, "2000": 2, "2001": 2, "2002": 2, "2003": 2, "2004": 2, "2005": 2, "2006": 2, "2007": 2, "2008": 2, "2009": 2, "2010": 2, "2011": 2, "2012": 2, "2013": 2, "2014": 2, "2015": 2, "2016": 2, "2017": 2, "2018": 2, "2019": 2, "2020": 2, "2021": 2, "2022": 2, "2023": 2, "2024": 2, "2025": 2, "2026": 2, "2027": 2, "2028": 2, "2029": 2, "2030": 2, "2031": 2, "2032": 2, "2033": 2, "2034": 2, "2035": 2, "2036": 2, "2037": 2, "2038": 2, "2039": 2, "2040": 2, "2041": 2, "2042": 2, "2043": 2, "2044": 2, "2045": 2, "2046": 2, "2047": 2, "2048": 2, "2049": 2, "2050": 2, "2051": 2, "2052": 2, "2053": 2, "2054": 2, "2055": 2, "2056": 2, "2057": 2, "2058": 2, "2059": 2, "2060": 2, "2061": 2, "2062": 2, "2063": 2, "2064": 2, "2065": 2, "2066": 2, "2067": 2, "2068": 2, "2069": 2, "2070": 2, "2071": 2, "2072": 2, "2073": 2, "2074": 2, "2075": 2, "2076": 2, "2077": 2, "2078": 2, "2079": 2, "2080": 2, "2081": 2, "2082": 2, "2083": 2, "2084": 2, "2085": 2, "2086": 2, "2087": 2, "2088": 2, "2089": 2, "2090": 2, "2091": 2, "2092": 2, "2093": 2, "2094": 2, "2095": 2, "2096": 2, "2097": 2, "2098": 2, "2099": 2, "2100": 2, "2101": 2, "2102": 2, "2103": 2, "2104": 2, "2105": 2, "2106": 2, "2107": 2, "2108": 2, "2109": 2, "2110": 2, "2111": 2, "2112": 2, "2113": 2, "2114": 2, "2115": 2, "2116": 2, "2117": 2, "2118": 2, "2119": 2, "2120": 2, "2121": 2, "2122": 2, "2123": 2, "2124": 2, "2125": 2, "2126": 2, "2127": 2, "2128": 2, "2129": 2, "2130": 2, "2131": 2, "2132": 2, "2133": 2, "2134": 2, "2135": 2, "2136": 2, "2137": 2, "2138": 2, "2139": 2, "2140": 2, "2141": 2, "2142": 2, "2143": 2, "2144": 2, "2145": 2, "2146": 2, "2147": 2, "2148": 2, "2149": 2, "2150": 2, "2151": 2, "2152": 2, "2153": 2, "2154": 2, "2155": 2, "2156": 2, "2157": 2, "2158": 2, "2159": 2, "2160": 2, "2161": 2, "2162": 2, "2163": 2, "2164": 2, "2165": 2, "2166": 2, "2167": 2, "2168": 2, "2169": 2, "2170": 2, "2171": 2, "2172": 2, "2173": 2, "2174": 2, "2175": 2, "2176": 2, "2177": 2, "2178": 2, "2179": 2, "2180": 2, "2181": 2, "2182": 2, "2183": 2, "2184": 2, "2185": 2, "2186": 2, "2187": 2, "2188": 2, "2189": 2, "2190": 2, "2191": 2, "2192": 2, "2193": 2, "2194": 2, "2195": 2, "2196": 2, "2197": 2, "2198": 2, "2199": 2, "2200": 2, "2201": 2, "2202": 2, "2203": 2, "2204": 2, "2205": 2, "2206": 2, "2207": 2, "2208": 2, "2209": 2, "2210": 2, "2211": 2, "2212": 2, "2213": 2, "2214": 2, "2215": 2, "2216": 2, "2217": 2, "2218": 2, "2219": 2, "2220": 2, "2221": 2, "2222": 2, "2223": 2, "2224": 2, "2225": 2, "2226": 2, "2227": 2, "2228": 2, "2229": 2, "2230": 2, "2231": 2, "2232": 2, "2233": 2, "2234": 2, "2235": 2, "2236": 2, "2237": 2, "2238": 2, "2239": 2, "2240": 2, "2241": 2, "2242": 2, "2243": 2, "2244": 2, "2245": 2, "2246": 2, "2247": 2, "2248": 2, "2249": 2, "2250": 2, "2251": 2, "2252": 2, "2253": 2, "2254": 2, "2255": 2, "2256": 2, "2257": 2, "2258": 2, "2259": 2, "2260": 2, "2261": 2, "2262": 2, "2263": 2, "2264": 2, "2265": 2, "2266": 2, "2267": 2, "2268": 2, "2269": 2, "2270": 2, "2271": 2, "2272": 2, "2273": 2, "2274": 2, "2275": 2, "2276": 2, "2277": 2, "2278": 2, "2279": 2, "2280": 2, "2281": 2, "2282": 2, "2283": 2, "2284": 2, "2285": 2, "2286": 2, "2287": 2, "2288": 2, "2289": 2, "2290": 2, "2291": 2, "2292": 2, "2293": 2, "2294": 2, "2295": 2, "2296": 2, "2297": 2, "2298": 2, "2299": 2, "2300": 2, "2301": 2, "2302": 2, "2303": 2, "2304": 2, "2305": 2, "2306": 2, "2307": 2, "2308": 2, "2309": 2, "2310": 2, "2311": 2, "2312": 2, "2313": 2, "2314": 2, "2315": 2, "2316": 2, "2317": 2, "2318": 2, "2319": 2, "2320": 2, "2321": 2, "2322": 2, "2323": 2, "2324": 2, "2325": 2, "2326": 2, "2327": 2, "2328": 2, "2329": 2, "2330": 2, "2331": 2, "2332": 2, "2333": 2, "2334": 2, "2335": 2, "2336": 2, "2337": 2, "2338": 2, "2339": 2, "2340": 2, "2341": 2, "2342": 2, "2343": 2, "2344": 2, "2345": 2, "2346": 2, "2347": 2, "2348": 2, "2349": 2, "2350": 2, "2351": 2, "2352": 2, "2353": 2, "2354": 2, "2355": 2, "2356": 2, "2357": 2, "2358": 2, "2359": 2, "2360": 2, "2361": 2, "2362": 2, "2363": 2, "2364": 2, "2365": 2, "2366": 2, "2367": 2, "2368": 2, "2369": 2, "2370": 2, "2371": 2, "2372": 2, "2373": 2, "2374": 2, "2375": 2, "2376": 2, "2377": 2, "2378": 2, "2379": 2, "2380": 2, "2381": 2, "2382": 2, "2383": 2, "2384": 2, "2385": 2, "2386": 2, "2387": 2, "2388": 2, "2389": 2, "2390": 2, "2391": 2, "2392": 2, "2393": 2, "2394": 2, "2395": 2, "2396": 2, "2397": 2, "2398": 2, "2399": 2, "2400": 2, "2401": 2, "2402": 2, "2403": 2, "2404": 2, "2405": 2, "2406": 2, "2407": 2, "2408": 2, "2409": 2, "2410": 2, "2411": 2, "2412": 2, "2413": 2, "2414": 2, "2415": 2, "2416": 2, "2417": 2, "2418": 2, "2419": 2, "2420": 2, "2421": 2, "2422": 2, "2423": 2, "2424": 2, "2425": 2, "2426": 2, "2427": 2, "2428": 2, "2429": 2, "2430": 2, "2431": 2, "2432": 2, "2433": 2, "2434": 2, "2435": 2, "2436": 2, "2437": 2, "2438": 2, "2439": 2, "2440": 2, "2441": 2, "2442": 2, "2443": 2, "2444": 2, "2445": 2, "2446": 2, "2447": 2, "2448": 2, "2449": 2, "2450": 2, "2451": 2, "2452": 2, "2453": 2, "2454": 2, "2455": 2, "2456": 2, "2457": 2, "2458": 2, "2459": 2, "2460": 2, "2461": 2, "2462": 2, "2463": 2, "2464": 2, "2465": 2, "2466": 2, "2467": 2, "2468": 2, "2469": 2, "2470": 2, "2471": 2, "2472": 2, "2473": 2, "2474": 2, "2475": 2, "2476": 2, "2477": 2, "2478": 2, "2479": 2, "2480": 2, "2481": 2, "2482": 2, "2483": 2, "2484": 2, "2485": 2, "2486": 2, "2487": 2, "2488": 2, "2489": 2, "2490": 2, "2491": 2, "2492": 2, "2493": 2, "2494": 2, "2495": 2, "2496": 2, "2497": 2, "2498": 2, "2499": 2, "2500": 2, "2501": 2, "2502": 2, "2503": 2, "2504": 2, "2505": 2, "2506": 2, "2507": 2, "2508": 2, "2509": 2, "2510": 2, "2511": 2, "2512": 2, "2513": 2, "2514": 2, "2515": 2, "2516": 2, "2517": 2, "2518": 2, "2519": 2, "2520": 2, "2521": 2, "2522": 2, "2523": 2, "2524": 2, "2525": 2, "2526": 2, "2527": 2, "2528": 2, "2529": 2, "2530": 2, "2531": 2, "2532": 2, "2533": 2, "2534": 2, "2535": 2, "2536": 2, "2537": 2, "2538": 2, "2539": 2, "2540": 2, "2541": 2, "2542": 2, "2543": 2, "2544": 2, "2545": 2, "2546": 2, "2547": 2, "2548": 2, "2549": 2, "2550": 2, "2551": 2, "2552": 2, "2553": 2, "2554": 2, "2555": 2, "2556": 2, "2557": 2, "2558": 2, "2559": 2, "2560": 2, "2561": 2, "2562": 2, "2563": 2, "2564": 2, "2565": 2, "2566": 2, "2567": 2, "2568": 2, "2569": 2, "2570": 2, "2571": 2, "2572": 2, "2573": 2, "2574": 2, "2575": 2, "2576": 2, "2577": 2, "2578": 2, "2579": 2, "2580": 2, "2581": 2, "2582": 2, "2583": 2, "2584": 2, "2585": 2, "2586": 2, "2587": 2, "2588": 2, "2589": 2, "2590": 2, "2591": 2, "2592": 2, "2593": 2, "2594": 2, "2595": 2, "2596": 2, "2597": 2, "2598": 2, "2599": 2, "2600": 3, "2601": 3, "2602": 3, "2603": 3, "2604": 3, "2605": 3, "2606": 3, "2607": 3, "2608": 3, "2609": 3, "2610": 3, "2611": 3, "2612": 3, "2613": 3, "2614": 3, "2615": 3, "2616": 3, "2617": 3, "2618": 3, "2619": 3, "2620": 3, "2621": 3, "2622": 3, "2623": 3, "2624": 3, "2625": 3, "2626": 3, "2627": 3, "2628": 3, "2629": 3, "2630": 3, "2631": 3, "2632": 3, "2633": 3, "2634": 3, "2635": 3, "2636": 3, "2637": 3, "2638": 3, "2639": 3, "2640": 3, "2641": 3, "2642": 3, "2643": 3, "2644": 3, "2645": 3, "2646": 3, "2647": 3, "2648": 3, "2649": 3, "2650": 3, "2651": 3, "2652": 3, "2653": 3, "2654": 3, "2655": 3, "2656": 3, "2657": 3, "2658": 3, "2659": 3, "2660": 3, "2661": 3, "2662": 3, "2663": 3, "2664": 3, "2665": 3, "2666": 3, "2667": 3, "2668": 3, "2669": 3, "2670": 3, "2671": 3, "2672": 3, "2673": 3, "2674": 3, "2675": 3, "2676": 3, "2677": 3, "2678": 3, "2679": 3, "2680": 3, "2681": 3, "2682": 3, "2683": 3, "2684": 3, "2685": 3, "2686": 3, "2687": 3, "2688": 3, "2689": 3, "2690": 3, "2691": 3, "2692": 3, "2693": 3, "2694": 3, "2695": 3, "2696": 3, "2697": 3, "2698": 3, "2699": 3, "2700": 3, "2701": 3, "2702": 3, "2703": 3, "2704": 3, "2705": 3, "2706": 3, "2707": 3, "2708": 3, "2709": 3, "2710": 3, "2711": 3, "2712": 3, "2713": 3, "2714": 3, "2715": 3, "2716": 3, "2717": 3, "2718": 3, "2719": 3, "2720": 3, "2721": 3, "2722": 3, "2723": 3, "2724": 3, "2725": 3, "2726": 3, "2727": 3, "2728": 3, "2729": 3, "2730": 3, "2731": 3, "2732": 3, "2733": 3, "2734": 3, "2735": 3, "2736": 3, "2737": 3, "2738": 3, "2739": 3, "2740": 3, "2741": 3, "2742": 3, "2743": 3, "2744": 3, "2745": 3, "2746": 3, "2747": 3, "2748": 3, "2749": 3, "2750": 3, "2751": 3, "2752": 3, "2753": 3, "2754": 3, "2755": 3, "2756": 3, "2757": 3, "2758": 3, "2759": 3, "2760": 3, "2761": 3, "2762": 3, "2763": 3, "2764": 3, "2765": 3, "2766": 3, "2767": 3, "2768": 3, "2769": 3, "2770": 3, "2771": 3, "2772": 3, "2773": 3, "2774": 3, "2775": 3, "2776": 3, "2777": 3, "2778": 3, "2779": 3, "2780": 3, "2781": 3, "2782": 3, "2783": 3, "2784": 3, "2785": 3, "2786": 3, "2787": 3, "2788": 3, "2789": 3, "2790": 3, "2791": 3, "2792": 3, "2793": 3, "2794": 3, "2795": 3, "2796": 3, "2797": 3, "2798": 3, "2799": 3, "2800": 3, "2801": 3, "2802": 3, "2803": 3, "2804": 3, "2805": 3, "2806": 3, "2807": 3, "2808": 3, "2809": 3, "2810": 3, "2811": 3, "2812": 3, "2813": 3, "2814": 3, "2815": 3, "2816": 3, "2817": 3, "2818": 3, "2819": 3, "2820": 3, "2821": 3, "2822": 3, "2823": 3, "2824": 3, "2825": 3, "2826": 3, "2827": 3, "2828": 3, "2829": 3, "2830": 3, "2831": 3, "2832": 3, "2833": 3, "2834": 3, "2835": 3, "2836": 3, "2837": 3, "2838": 3, "2839": 3, "2840": 3, "2841": 3, "2842": 3, "2843": 3, "2844": 3, "2845": 3, "2846": 3, "2847": 3, "2848": 3, "2849": 3, "2850": 3, "2851": 3, "2852": 3, "2853": 3, "2854": 3, "2855": 3, "2856": 3, "2857": 3, "2858": 3, "2859": 3, "2860": 3, "2861": 3, "2862": 3, "2863": 3, "2864": 3, "2865": 3, "2866": 3, "2867": 3, "2868": 3, "2869": 3, "2870": 3, "2871": 3, "2872": 3, "2873": 3, "2874": 3, "2875": 3, "2876": 3, "2877": 3, "2878": 3, "2879": 3, "2880": 3, "2881": 3, "2882": 3, "2883": 3, "2884": 3, "2885": 3, "2886": 3, "2887": 3, "2888": 3, "2889": 3, "2890": 3, "2891": 3, "2892": 3, "2893": 3, "2894": 3, "2895": 3, "2896": 3, "2897": 3, "2898": 3, "2899": 3, "2900": 3, "2901": 3, "2902": 3, "2903": 3, "2904": 3, "2905": 3, "2906": 3, "2907": 3, "2908": 3, "2909": 3, "2910": 3, "2911": 3, "2912": 3, "2913": 3, "2914": 3, "2915": 3, "2916": 3, "2917": 3, "2918": 3, "2919": 3, "2920": 3, "2921": 3, "2922": 3, "2923": 3, "2924": 3, "2925": 3, "2926": 3, "2927": 3, "2928": 3, "2929": 3, "2930": 3, "2931": 3, "2932": 3, "2933": 3, "2934": 3, "2935": 3, "2936": 3, "2937": 3, "2938": 3, "2939": 3, "2940": 3, "2941": 3, "2942": 3, "2943": 3, "2944": 3, "2945": 3, "2946": 3, "2947": 3, "2948": 3, "2949": 3, "2950": 3, "2951": 3, "2952": 3, "2953": 3, "2954": 3, "2955": 3, "2956": 3, "2957": 3, "2958": 3, "2959": 3, "2960": 3, "2961": 3, "2962": 3, "2963": 3, "2964": 3, "2965": 3, "2966": 3, "2967": 3, "2968": 3, "2969": 3, "2970": 3, "2971": 3, "2972": 3, "2973": 3, "2974": 3, "2975": 3, "2976": 3, "2977": 3, "2978": 3, "2979": 3, "2980": 3, "2981": 3, "2982": 3, "2983": 3, "2984": 3, "2985": 3, "2986": 3, "2987": 3, "2988": 3, "2989": 3, "2990": 3, "2991": 3, "2992": 3, "2993": 3, "2994": 3, "2995": 3, "2996": 3, "2997": 3, "2998": 3, "2999": 3, "3000": 3, "3001": 3, "3002": 3, "3003": 3, "3004": 3, "3005": 3, "3006": 3, "3007": 3, "3008": 3, "3009": 3, "3010": 3, "3011": 3, "3012": 3, "3013": 3, "3014": 3, "3015": 3, "3016": 3, "3017": 3, "3018": 3, "3019": 3, "3020": 3, "3021": 3, "3022": 3, "3023": 3, "3024": 3, "3025": 3, "3026": 3, "3027": 3, "3028": 3, "3029": 3, "3030": 3, "3031": 3, "3032": 3, "3033": 3, "3034": 3, "3035": 3, "3036": 3, "3037": 3, "3038": 3, "3039": 3, "3040": 3, "3041": 3, "3042": 3, "3043": 3, "3044": 3, "3045": 3, "3046": 3, "3047": 3, "3048": 3, "3049": 3, "3050": 3, "3051": 3, "3052": 3, "3053": 3, "3054": 3, "3055": 3, "3056": 3, "3057": 3, "3058": 3, "3059": 3, "3060": 3, "3061": 3, "3062": 3, "3063": 3, "3064": 3, "3065": 3, "3066": 3, "3067": 3, "3068": 3, "3069": 3, "3070": 3, "3071": 3, "3072": 3, "3073": 3, "3074": 3, "3075": 3, "3076": 3, "3077": 3, "3078": 3, "3079": 3, "3080": 3, "3081": 3, "3082": 3, "3083": 3, "3084": 3, "3085": 3, "3086": 3, "3087": 3, "3088": 3, "3089": 3, "3090": 3, "3091": 3, "3092": 3, "3093": 3, "3094": 3, "3095": 3, "3096": 3, "3097": 3, "3098": 3, "3099": 3, "3100": 3, "3101": 3, "3102": 3, "3103": 3, "3104": 3, "3105": 3, "3106": 3, "3107": 3, "3108": 3, "3109": 3, "3110": 3, "3111": 3, "3112": 3, "3113": 3, "3114": 3, "3115": 3, "3116": 3, "3117": 3, "3118": 3, "3119": 3, "3120": 3, "3121": 3, "3122": 3, "3123": 3, "3124": 3, "3125": 3, "3126": 3, "3127": 3, "3128": 3, "3129": 3, "3130": 3, "3131": 3, "3132": 3, "3133": 3, "3134": 3, "3135": 3, "3136": 3, "3137": 3, "3138": 3, "3139": 3, "3140": 3, "3141": 3, "3142": 3, "3143": 3, "3144": 3, "3145": 3, "3146": 3, "3147": 3, "3148": 3, "3149": 3, "3150": 3, "3151": 3, "3152": 3, "3153": 3, "3154": 3, "3155": 3, "3156": 3, "3157": 3, "3158": 3, "3159": 3, "3160": 3, "3161": 3, "3162": 3, "3163": 3, "3164": 3, "3165": 3, "3166": 3, "3167": 3, "3168": 3, "3169": 3, "3170": 3, "3171": 3, "3172": 3, "3173": 3, "3174": 3, "3175": 3, "3176": 3, "3177": 3, "3178": 3, "3179": 3, "3180": 3, "3181": 3, "3182": 3, "3183": 3, "3184": 3, "3185": 3, "3186": 3, "3187": 3, "3188": 3, "3189": 3, "3190": 3, "3191": 3, "3192": 3, "3193": 3, "3194": 3, "3195": 3, "3196": 3, "3197": 3, "3198": 3, "3199": 3, "3200": 3, "3201": 3, "3202": 3, "3203": 3, "3204": 3, "3205": 3, "3206": 3, "3207": 3, "3208": 3, "3209": 3, "3210": 3, "3211": 3, "3212": 3, "3213": 3, "3214": 3, "3215": 3, "3216": 3, "3217": 3, "3218": 3, "3219": 3, "3220": 3, "3221": 3, "3222": 3, "3223": 3, "3224": 3, "3225": 3, "3226": 3, "3227": 3, "3228": 3, "3229": 3, "3230": 3, "3231": 3, "3232": 3, "3233": 3, "3234": 3, "3235": 3, "3236": 3, "3237": 3, "3238": 3, "3239": 3, "3240": 3, "3241": 3, "3242": 3, "3243": 3, "3244": 3, "3245": 3, "3246": 3, "3247": 3, "3248": 3, "3249": 3, "3250": 3, "3251": 3, "3252": 3, "3253": 3, "3254": 3, "3255": 3, "3256": 3, "3257": 3, "3258": 3, "3259": 3, "3260": 3, "3261": 3, "3262": 3, "3263": 3, "3264": 3, "3265": 3, "3266": 3, "3267": 3, "3268": 3, "3269": 3, "3270": 3, "3271": 3, "3272": 3, "3273": 3, "3274": 3, "3275": 3, "3276": 3, "3277": 3, "3278": 3, "3279": 3, "3280": 3, "3281": 3, "3282": 3, "3283": 3, "3284": 3, "3285": 3, "3286": 3, "3287": 3, "3288": 3, "3289": 3, "3290": 3, "3291": 3, "3292": 3, "3293": 3, "3294": 3, "3295": 3, "3296": 3, "3297": 3, "3298": 3, "3299": 3, "3300": 3, "3301": 3, "3302": 3, "3303": 3, "3304": 3, "3305": 3, "3306": 3, "3307": 3, "3308": 3, "3309": 3, "3310": 3, "3311": 3, "3312": 3, "3313": 3, "3314": 3, "3315": 3, "3316": 3, "3317": 3, "3318": 3, "3319": 3, "3320": 3, "3321": 3, "3322": 3, "3323": 3, "3324": 3, "3325": 3, "3326": 3, "3327": 3, "3328": 3, "3329": 3, "3330": 3, "3331": 3, "3332": 3, "3333": 4, "3334": 4, "3335": 4, "3336": 4, "3337": 4, "3338": 4, "3339": 4, "3340": 4, "3341": 4, "3342": 4, "3343": 4, "3344": 4, "3345": 4, "3346": 4, "3347": 4, "3348": 4, "3349": 4, "3350": 4, "3351": 4, "3352": 4, "3353": 4, "3354": 4, "3355": 4, "3356": 4, "3357": 4, "3358": 4, "3359": 4, "3360": 4, "3361": 4, "3362": 4, "3363": 4, "3364": 4, "3365": 4, "3366": 4, "3367": 4, "3368": 4, "3369": 4, "3370": 4, "3371": 4, "3372": 4, "3373": 4, "3374": 4, "3375": 4, "3376": 4, "3377": 4, "3378": 4, "3379": 4, "3380": 4, "3381": 4, "3382": 4, "3383": 4, "3384": 4, "3385": 4, "3386": 4, "3387": 4, "3388": 4, "3389": 4, "3390": 4, "3391": 4, "3392": 4, "3393": 4, "3394": 4, "3395": 4, "3396": 4, "3397": 4, "3398": 4, "3399": 4, "3400": 4, "3401": 4, "3402": 4, "3403": 4, "3404": 4, "3405": 4, "3406": 4, "3407": 4, "3408": 4, "3409": 4, "3410": 4, "3411": 4, "3412": 4, "3413": 4, "3414": 4, "3415": 4, "3416": 4, "3417": 4, "3418": 4, "3419": 4, "3420": 4, "3421": 4, "3422": 4, "3423": 4, "3424": 4, "3425": 4, "3426": 4, "3427": 4, "3428": 4, "3429": 4, "3430": 4, "3431": 4, "3432": 4, "3433": 4, "3434": 4, "3435": 4, "3436": 4, "3437": 4, "3438": 4, "3439": 4, "3440": 4, "3441": 4, "3442": 4, "3443": 4, "3444": 4, "3445": 4, "3446": 4, "3447": 4, "3448": 4, "3449": 4, "3450": 4, "3451": 4, "3452": 4, "3453": 4, "3454": 4, "3455": 4, "3456": 4, "3457": 4, "3458": 4, "3459": 4, "3460": 4, "3461": 4, "3462": 4, "3463": 4, "3464": 4, "3465": 4, "3466": 4, "3467": 4, "3468": 4, "3469": 4, "3470": 4, "3471": 4, "3472": 4, "3473": 4, "3474": 4, "3475": 4, "3476": 4, "3477": 4, "3478": 4, "3479": 4, "3480": 4, "3481": 4, "3482": 4, "3483": 4, "3484": 4, "3485": 4, "3486": 4, "3487": 4, "3488": 4, "3489": 4, "3490": 4, "3491": 4, "3492": 4, "3493": 4, "3494": 4, "3495": 4, "3496": 4, "3497": 4, "3498": 4, "3499": 4, "3500": 4, "3501": 4, "3502": 4, "3503": 4, "3504": 4, "3505": 4, "3506": 4, "3507": 4, "3508": 4, "3509": 4, "3510": 4, "3511": 4, "3512": 4, "3513": 4, "3514": 4, "3515": 4, "3516": 4, "3517": 4, "3518": 4, "3519": 4, "3520": 4, "3521": 4, "3522": 4, "3523": 4, "3524": 4, "3525": 4, "3526": 4, "3527": 4, "3528": 4, "3529": 4, "3530": 4, "3531": 4, "3532": 4, "3533": 4, "3534": 4, "3535": 4, "3536": 4, "3537": 4, "3538": 4, "3539": 4, "3540": 4, "3541": 4, "3542": 4, "3543": 4, "3544": 4, "3545": 4, "3546": 4, "3547": 4, "3548": 4, "3549": 4, "3550": 4, "3551": 4, "3552": 4, "3553": 4, "3554": 4, "3555": 4, "3556": 4, "3557": 4, "3558": 4, "3559": 4, "3560": 4, "3561": 4, "3562": 4, "3563": 4, "3564": 4, "3565": 4, "3566": 4, "3567": 4, "3568": 4, "3569": 4, "3570": 4, "3571": 4, "3572": 4, "3573": 4, "3574": 4, "3575": 4, "3576": 4, "3577": 4, "3578": 4, "3579": 4, "3580": 4, "3581": 4, "3582": 4, "3583": 4, "3584": 4, "3585": 4, "3586": 4, "3587": 4, "3588": 4, "3589": 4, "3590": 4, "3591": 4, "3592": 4, "3593": 4, "3594": 4, "3595": 4, "3596": 4, "3597": 4, "3598": 4, "3599": 4, "3600": 4, "3601": 4, "3602": 4, "3603": 4, "3604": 4, "3605": 4, "3606": 4, "3607": 4, "3608": 4, "3609": 4, "3610": 4, "3611": 4, "3612": 4, "3613": 4, "3614": 4, "3615": 4, "3616": 4, "3617": 4, "3618": 4, "3619": 4, "3620": 4, "3621": 4, "3622": 4, "3623": 4, "3624": 4, "3625": 4, "3626": 4, "3627": 4, "3628": 4, "3629": 4, "3630": 4, "3631": 4, "3632": 4, "3633": 4, "3634": 4, "3635": 4, "3636": 4, "3637": 4, "3638": 4, "3639": 4, "3640": 4, "3641": 4, "3642": 4, "3643": 4, "3644": 4, "3645": 4, "3646": 4, "3647": 4, "3648": 4, "3649": 4, "3650": 4, "3651": 4, "3652": 4, "3653": 4, "3654": 4, "3655": 4, "3656": 4, "3657": 4, "3658": 4, "3659": 4, "3660": 4, "3661": 4, "3662": 4, "3663": 4, "3664": 4, "3665": 4, "3666": 4, "3667": 4, "3668": 4, "3669": 4, "3670": 4, "3671": 4, "3672": 4, "3673": 4, "3674": 4, "3675": 4, "3676": 4, "3677": 4, "3678": 4, "3679": 4, "3680": 4, "3681": 4, "3682": 4, "3683": 4, "3684": 4, "3685": 4, "3686": 4, "3687": 4, "3688": 4, "3689": 4, "3690": 4, "3691": 4, "3692": 4, "3693": 4, "3694": 4, "3695": 4, "3696": 4, "3697": 4, "3698": 4, "3699": 4, "3700": 4, "3701": 4, "3702": 4, "3703": 4, "3704": 4, "3705": 4, "3706": 4, "3707": 4, "3708": 4, "3709": 4, "3710": 4, "3711": 4, "3712": 4, "3713": 4, "3714": 4, "3715": 4, "3716": 4, "3717": 4, "3718": 4, "3719": 4, "3720": 4, "3721": 4, "3722": 4, "3723": 4, "3724": 4, "3725": 4, "3726": 4, "3727": 4, "3728": 4, "3729": 4, "3730": 4, "3731": 4, "3732": 4, "3733": 4, "3734": 4, "3735": 4, "3736": 4, "3737": 4, "3738": 4, "3739": 4, "3740": 4, "3741": 4, "3742": 4, "3743": 4, "3744": 4, "3745": 4, "3746": 4, "3747": 4, "3748": 4, "3749": 4, "3750": 4, "3751": 4, "3752": 4, "3753": 4, "3754": 4, "3755": 4, "3756": 4, "3757": 4, "3758": 4, "3759": 4, "3760": 4, "3761": 4, "3762": 4, "3763": 4, "3764": 4, "3765": 4, "3766": 4, "3767": 4, "3768": 4, "3769": 4, "3770": 4, "3771": 4, "3772": 4, "3773": 4, "3774": 4, "3775": 4, "3776": 4, "3777": 4, "3778": 4, "3779": 4, "3780": 4, "3781": 4, "3782": 4, "3783": 4, "3784": 4, "3785": 4, "3786": 4, "3787": 4, "3788": 4, "3789": 4, "3790": 4, "3791": 4, "3792": 4, "3793": 4, "3794": 4, "3795": 4, "3796": 4, "3797": 4, "3798": 4, "3799": 4, "3800": 4, "3801": 4, "3802": 4, "3803": 4, "3804": 4, "3805": 4, "3806": 4, "3807": 4, "3808": 4, "3809": 4, "3810": 4, "3811": 4, "3812": 4, "3813": 4, "3814": 4, "3815": 4, "3816": 4, "3817": 4, "3818": 4, "3819": 4, "3820": 4, "3821": 4, "3822": 4, "3823": 4, "3824": 4, "3825": 4, "3826": 4, "3827": 4, "3828": 4, "3829": 4, "3830": 4, "3831": 4, "3832": 4, "3833": 4, "3834": 4, "3835": 4, "3836": 4, "3837": 4, "3838": 4, "3839": 4, "3840": 4, "3841": 4, "3842": 4, "3843": 4, "3844": 4, "3845": 4, "3846": 4, "3847": 4, "3848": 4, "3849": 4, "3850": 4, "3851": 4, "3852": 4, "3853": 4, "3854": 4, "3855": 4, "3856": 4, "3857": 4, "3858": 4, "3859": 4, "3860": 4, "3861": 4, "3862": 4, "3863": 4, "3864": 4, "3865": 4, "3866": 4, "3867": 4, "3868": 4, "3869": 4, "3870": 4, "3871": 4, "3872": 4, "3873": 4, "3874": 4, "3875": 4, "3876": 4, "3877": 4, "3878": 4, "3879": 4, "3880": 4, "3881": 4, "3882": 4, "3883": 4, "3884": 4, "3885": 4, "3886": 4, "3887": 4, "3888": 4, "3889": 4, "3890": 4, "3891": 4, "3892": 4, "3893": 4, "3894": 4, "3895": 4, "3896": 4, "3897": 4, "3898": 4, "3899": 4, "3900": 4, "3901": 4, "3902": 4, "3903": 4, "3904": 4, "3905": 4, "3906": 4, "3907": 4, "3908": 4, "3909": 4, "3910": 4, "3911": 4, "3912": 4, "3913": 4, "3914": 4, "3915": 4, "3916": 4, "3917": 4, "3918": 4, "3919": 4, "3920": 4, "3921": 4, "3922": 4, "3923": 4, "3924": 4, "3925": 4, "3926": 4, "3927": 4, "3928": 4, "3929": 4, "3930": 4, "3931": 4, "3932": 4, "3933": 4, "3934": 4, "3935": 4, "3936": 4, "3937": 4, "3938": 4, "3939": 4, "3940": 4, "3941": 4, "3942": 4, "3943": 4, "3944": 4, "3945": 4, "3946": 4, "3947": 4, "3948": 4, "3949": 4, "3950": 4, "3951": 4, "3952": 4, "3953": 4, "3954": 4, "3955": 4, "3956": 4, "3957": 4, "3958": 4, "3959": 4, "3960": 4, "3961": 4, "3962": 4, "3963": 4, "3964": 4, "3965": 4, "3966": 4, "3967": 4, "3968": 4, "3969": 4, "3970": 4, "3971": 4, "3972": 4, "3973": 4, "3974": 4, "3975": 4, "3976": 4, "3977": 4, "3978": 4, "3979": 4, "3980": 4, "3981": 4, "3982": 4, "3983": 4, "3984": 4, "3985": 4, "3986": 4, "3987": 4, "3988": 4, "3989": 4, "3990": 4, "3991": 4, "3992": 4, "3993": 4, "3994": 4, "3995": 4, "3996": 4, "3997": 4, "3998": 4, "3999": 4, "4000": 4, "4001": 4, "4002": 4, "4003": 4, "4004": 4, "4005": 4, "4006": 4, "4007": 4, "4008": 4, "4009": 4, "4010": 4, "4011": 4, "4012": 4, "4013": 4, "4014": 4, "4015": 4, "4016": 4, "4017": 4, "4018": 4, "4019": 4, "4020": 4, "4021": 4, "4022": 4, "4023": 4, "4024": 4, "4025": 4, "4026": 4, "4027": 4, "4028": 4, "4029": 4, "4030": 4, "4031": 4, "4032": 4, "4033": 4, "4034": 4, "4035": 4, "4036": 4, "4037": 4, "4038": 4, "4039": 4, "4040": 4, "4041": 4, "4042": 4, "4043": 4, "4044": 4, "4045": 4, "4046": 4, "4047": 4, "4048": 4, "4049": 4, "4050": 4, "4051": 4, "4052": 4, "4053": 4, "4054": 4, "4055": 4, "4056": 4, "4057": 4, "4058": 4, "4059": 4, "4060": 4, "4061": 4, "4062": 4, "4063": 4, "4064": 4, "4065": 4, "4066": 4, "4067": 4, "4068": 4, "4069": 4, "4070": 4, "4071": 4, "4072": 4, "4073": 4, "4074": 4, "4075": 4, "4076": 4, "4077": 4, "4078": 4, "4079": 4, "4080": 4, "4081": 4, "4082": 4, "4083": 4, "4084": 4, "4085": 4, "4086": 4, "4087": 4, "4088": 4, "4089": 4, "4090": 4, "4091": 4, "4092": 4, "4093": 4, "4094": 4, "4095": 4, "4096": 4, "4097": 4, "4098": 4, "4099": 4, "4100": 4, "4101": 4, "4102": 4, "4103": 4, "4104": 4, "4105": 4, "4106": 4, "4107": 4, "4108": 4, "4109": 4, "4110": 4, "4111": 4, "4112": 4, "4113": 4, "4114": 4, "4115": 4, "4116": 4, "4117": 4, "4118": 4, "4119": 4, "4120": 4, "4121": 4, "4122": 4, "4123": 4, "4124": 4, "4125": 4, "4126": 4, "4127": 4, "4128": 4, "4129": 4, "4130": 4, "4131": 4, "4132": 4, "4133": 4, "4134": 4, "4135": 4, "4136": 4, "4137": 4, "4138": 4, "4139": 4, "4140": 4, "4141": 4, "4142": 4, "4143": 4, "4144": 4, "4145": 4, "4146": 4, "4147": 4, "4148": 4, "4149": 4, "4150": 4, "4151": 4, "4152": 4, "4153": 4, "4154": 4, "4155": 4, "4156": 4, "4157": 4, "4158": 4, "4159": 4, "4160": 4, "4161": 4, "4162": 4, "4163": 4, "4164": 4, "4165": 4, "4166": 4, "4167": 4, "4168": 4, "4169": 4, "4170": 4, "4171": 4, "4172": 4, "4173": 4, "4174": 4, "4175": 4, "4176": 4, "4177": 4, "4178": 4, "4179": 4, "4180": 4, "4181": 4, "4182": 4, "4183": 4, "4184": 4, "4185": 4, "4186": 4, "4187": 4, "4188": 4, "4189": 4, "4190": 4, "4191": 4, "4192": 4, "4193": 4, "4194": 4, "4195": 4, "4196": 4, "4197": 4, "4198": 4, "4199": 4, "4200": 4, "4201": 4, "4202": 4, "4203": 4, "4204": 4, "4205": 4, "4206": 4, "4207": 4, "4208": 4, "4209": 4, "4210": 4, "4211": 4, "4212": 4, "4213": 4, "4214": 4, "4215": 4, "4216": 4, "4217": 4, "4218": 4, "4219": 4, "4220": 4, "4221": 4, "4222": 4, "4223": 4, "4224": 4, "4225": 4, "4226": 4, "4227": 4, "4228": 4, "4229": 4, "4230": 4, "4231": 4, "4232": 4, "4233": 4, "4234": 4, "4235": 4, "4236": 4, "4237": 4, "4238": 4, "4239": 4, "4240": 4, "4241": 4, "4242": 4, "4243": 4, "4244": 4, "4245": 4, "4246": 4, "4247": 4, "4248": 4, "4249": 4, "4250": 4, "4251": 4, "4252": 4, "4253": 4, "4254": 4, "4255": 4, "4256": 4, "4257": 4, "4258": 4, "4259": 4, "4260": 4, "4261": 4, "4262": 4, "4263": 4, "4264": 4, "4265": 4, "4266": 4, "4267": 4, "4268": 4, "4269": 4, "4270": 4, "4271": 4, "4272": 4, "4273": 4, "4274": 4, "4275": 4, "4276": 4, "4277": 4, "4278": 4, "4279": 4, "4280": 4, "4281": 4, "4282": 4, "4283": 4, "4284": 4, "4285": 4, "4286": 4, "4287": 4, "4288": 4, "4289": 4, "4290": 4, "4291": 4, "4292": 4, "4293": 4, "4294": 4, "4295": 4, "4296": 4, "4297": 4, "4298": 4, "4299": 4, "4300": 4, "4301": 4, "4302": 4, "4303": 4, "4304": 4, "4305": 4, "4306": 4, "4307": 4, "4308": 4, "4309": 4, "4310": 4, "4311": 4, "4312": 4, "4313": 4, "4314": 4, "4315": 4, "4316": 4}
+[ModelArts Service Log]modelarts-pipe: total length: 110798
+[Modelarts Service Log]Training end with return code: 0
+[Modelarts Service Log]handle outputs of training job
+[Modelarts Service Log][modelarts_logger] modelarts-pipe found
+[ModelArts Service Log]modelarts-pipe: will create log file /home/work/modelarts/outputs/log/modelarts-job-c0967d54-d12d-470a-b2a2-4c4e3a40f13b-training.log
+[ModelArts Service Log]modelarts-pipe: will write log file /home/work/modelarts/outputs/log/modelarts-job-c0967d54-d12d-470a-b2a2-4c4e3a40f13b-training.log
+[ModelArts Service Log]modelarts-pipe: param for max log length: 1073741824
+[ModelArts Service Log]modelarts-pipe: param for whether exit on overflow: 0
+INFO:root:Using MoXing-v2.0.0.rc2.4b57a67b-4b57a67b
+INFO:root:Using OBS-Python-SDK-3.20.9.1
+[ModelArts Service Log][INFO][2022/01/21 13:49:18]: upload the content of [train_url] outputs
+[ModelArts Service Log][INFO][2022/01/21 13:49:20]: upload the content of [train_url] outputs successfully
+[ModelArts Service Log][INFO][2022/01/21 13:49:20]: it can be accessed at obs path [/test22161/resnet/model/]
+[ModelArts Service Log][INFO][2022/01/21 13:49:20]: upload the content of [eval_url] outputs
+[ModelArts Service Log][INFO][2022/01/21 13:49:21]: upload the content of [eval_url] outputs successfully
+[ModelArts Service Log][INFO][2022/01/21 13:49:21]: it can be accessed at obs path [/test22161/out/]
+[ModelArts Service Log]modelarts-pipe: total length: 703
+[Modelarts Service Log]Training completed.
+[ModelArts Service Log][sidecar] training is completed
+[ModelArts Service Log][sidecar] stop outputs_handler_pid = 64 by signal SIGTERM
+[ModelArts Service Log][INFO][2022/01/21 13:49:21,468]: output-handler finalizing due to: [training finished]
+[ModelArts Service Log][INFO][2022/01/21 13:49:21,468]: output-handler finalized
+[ModelArts Service Log][sidecar] stop toolkit_obs_sync_by_channels_pid = 79 by signal SIGTERM
+time="2022-01-21T13:49:21+08:00" level=info msg="the periodic upload task exiting..." file="upload.go:59" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=train_url Platform=ModelArts-Service
+time="2022-01-21T13:49:21+08:00" level=info msg="the periodic upload task exiting..." file="upload.go:59" Command=obs/sync_by_channels Component=ma-training-toolkit Ctx=eval_url Platform=ModelArts-Service
+[ModelArts Service Log][sidecar] outputs_handler_pid = 64 ret_code is 0
+[ModelArts Service Log][sidecar] toolkit_obs_sync_by_channels_pid = 79 ret_code is 0
+[ModelArts Service Log][sidecar] upload_metrics_pid = 360
+[ModelArts Service Log][sidecar] exiting at 2022-01-21-13:49:22
+[ModelArts Service Log][sidecar] exit with 0
+[ModelArts Service Log][sidecar] stop toolkit_obs_upload_pid = 36 by signal SIGTERM
+time="2022-01-21T13:49:22+08:00" level=info msg="the periodic upload task exiting..." file="upload.go:59" Command=obs/upload Component=ma-training-toolkit Platform=ModelArts-Service
