@@ -8,3 +8,5 @@ Use HuaWeiCloud ModelArts to train ResNet classification
 # Flowers dataset
 <a href="http://download.tensorflow.org/example_images/flower_photos.tgz">Download</a>
     
+# classification
+<a href="https://github.com/fusuguo/HuaWeiCloud_IEF/tree/main/classification">Classify flower pictures and produce a floder with classification result</a>
