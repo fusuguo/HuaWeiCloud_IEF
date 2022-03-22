@@ -19,8 +19,8 @@
 
 char *uri = "ssl://iot-mqtts.cn-north-4.myhuaweicloud.com:8883";
 int port = 8883;
-char *username = "621c3e84c4e6a958e353c65c_testName"; 
-char *password = "5d0085dc9d09fd5f699b1943fad3c6ad";
+char *username;
+char *password;
 
 int gQOS = 1;  //default value of qos is 1
 int keepAliveInterval = 120; //default value of keepAliveInterval is 120s
@@ -332,7 +332,6 @@ int readfile(char *filename)
 	FILE *f;
 	int len,i,ret;
 	char *data;
-
 	f=fopen(filename,"rb");
 	fseek(f,0,SEEK_END);
 	len=ftell(f);
@@ -347,7 +346,7 @@ int readfile(char *filename)
 
 int cJSON_to_publish(char *text)
 {
-	cJSON *json,*name,*class,*prob;
+	cJSON *json,*name,*class,*scores;
 	int i;
         int ret;
 	json=cJSON_Parse(text);
@@ -357,9 +356,9 @@ int cJSON_to_publish(char *text)
 	}
 	else
 	{
-		name=cJSON_GetObjectItem(json,"imageName");
-                class=cJSON_GetObjectItem(json,"class");
-                prob=cJSON_GetObjectItem(json,"prob");
+		 name=cJSON_GetObjectItem(json,"imageName");
+                class=cJSON_GetObjectItem(json,"predicted_label");
+                scores=cJSON_GetObjectItem(json,"scores");
 		if(name!=NULL)
 		{                                     
                              char payload[200];
@@ -380,8 +379,10 @@ int cJSON_to_publish(char *text)
 		             free(report_topic);
 		             report_topic = NULL;				                          
                 }
-		if(prob!=NULL)
-		{                                     
+		if(scores!=NULL)
+		{            
+                             cJSON * pSub = cJSON_GetArrayItem(scores, 0);
+                             cJSON * prob = cJSON_GetArrayItem(pSub, 1);
                              char payload[200];
 		             //memcpy(imageName,object->valueint,strlen(object->valuestring));
                              sprintf(payload,"{\"services\":[{\"service_id\":\"testID\",\"properties\":{\"prob\":%s},\"eventTime\":null}]}",prob->valuestring);
@@ -414,7 +415,14 @@ int readFileList(char *basePath)
         {
              continue;
         }else if(ptr->d_type == 8)    ///file
-        {            
+        {    
+                             char payload[200];
+		             //memcpy(imageName,object->valueint,strlen(object->valuestring));
+                             sprintf(payload,"{\"services\":[{\"service_id\":\"testID\",\"properties\":{\"imageName\":\"%s\"},\"eventTime\":null}]}",ptr->d_name);
+                             char *report_topic = combine_strings(3, "$oc/devices/", username, "/sys/properties/report");
+		             ret = mqtt_publish(report_topic, payload);
+		             free(report_topic);
+		             report_topic = NULL;        
             sprintf(path,"%s/%s",basePath,ptr->d_name);
             ret=readfile(path);
         }else if(ptr->d_type == 10)    ///link file
@@ -437,8 +445,10 @@ int readFileList(char *basePath)
 
 
 
-int main(void) {
-
+int main(int argc,char * argv[]) {
+	//read id && token
+	username = argv[1];
+        password = argv[2];
 	//connect
 	int ret = mqtt_connect();
 	if (ret != 0) {
@@ -448,8 +458,11 @@ int main(void) {
 	time_sleep(3000);
 
 	while(1){
+	        char port[200];
+		sprintf(port,"./port.sh %s %s",argv[3],argv[4]);
+		system(port);
                 //read json file && publish data
-                ret=readFileList("/app/test/Test5_resnet/pic");
+                ret=readFileList("/app/result");
 
 		if (ret < 0) {
 			printf("publish data error, result %d\n", ret);
